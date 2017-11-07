@@ -1,4 +1,4 @@
-# Conjur Mom
+# Conjur Policy Generator
 
 It makes MAMLs!
 
