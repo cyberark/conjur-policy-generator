@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha; standard",
+    "generate": "node ./src/index.js",
     "lint": "standard"
   },
   "keywords": [
@@ -20,6 +21,7 @@
     "standard": "^10.0.3"
   },
   "dependencies": {
+    "minimist": "^1.2.0",
     "uuid": "^3.1.0"
   }
 }
