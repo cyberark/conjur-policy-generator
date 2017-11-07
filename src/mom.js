@@ -55,15 +55,15 @@ function humans (users = 2, groups = 1, usersPerGroup = 1) {
   const transform = string => bigPolicy ? makeUnique(string) : string
 
   const userStrings = Array(users).fill()
-        .map((_, index) => transform(constants.HUMAN_NAMES[index%numUserNames]))
+        .map((_, index) => transform(constants.HUMAN_NAMES[index % numUserNames]))
   const groupStrings = Array(groups).fill()
-        .map((_, index) => transform(constants.ANIMAL_NAMES[index%numGroupNames]))
-  const grantObjects = groupStrings.map(group => {
+        .map((_, index) => transform(constants.ANIMAL_NAMES[index % numGroupNames]))
+  const grantObjects = usersPerGroup > 0 ? groupStrings.map(group => {
     return {
       role: group,
       members: userStrings.slice(0, usersPerGroup)
     }
-  })
+  }) : []
 
   return yaml(
     ...(userStrings.map(name => user(name))),
