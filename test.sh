@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker run --rm conjur-mom test
+docker run --rm conjur-policy-generator test

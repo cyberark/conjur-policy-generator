@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker run --rm conjur-mom run generate -- $@
+docker run --rm conjur-policy-generator run generate -- $@
