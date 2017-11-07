@@ -1,4 +1,4 @@
 const mom = require('./mom')
 const humans = mom.humans
 
-console.log(humans(5, 2, 5))
+console.log(humans(30, 30, 6))

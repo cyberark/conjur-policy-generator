@@ -22,7 +22,25 @@ const HUMAN_NAMES = [
 const ANIMAL_NAMES = [
   'aardvark',
   'bobcat',
-  'caribou'
+  'caribou',
+  'dugong',
+  'elephant',
+  'fossa',
+  'giraffe',
+  'hedgehog',
+  'impala',
+  'jaguar',
+  'koala',
+  'lynx',
+  'moose',
+  'narwhal',
+  'otter',
+  'possum',
+  'raccoon',
+  'squirrel',
+  'tapir',
+  'walrus',
+  'zebra'
 ]
 
 module.exports = {HUMAN_NAMES, ANIMAL_NAMES}

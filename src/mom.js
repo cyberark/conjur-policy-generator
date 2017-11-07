@@ -1,9 +1,14 @@
 const constants = require('./constants')
+const uuid = require('uuid/v4')
 
 function indent (text, number = 2, char = ' ') {
   return text.split('\n')
     .map(line => `${char.repeat(number)}${line}`)
     .join('\n')
+}
+
+function makeUnique (string) {
+  return `${string}--${uuid()}`
 }
 
 function yaml (...children) {
@@ -44,8 +49,15 @@ ${indent(renderMembers())}`
 }
 
 function humans (users = 2, groups = 1, usersPerGroup = 1) {
-  const userStrings = Array(users).fill().map((_, index) => constants.HUMAN_NAMES[index])
-  const groupStrings = Array(groups).fill().map((_, index) => constants.ANIMAL_NAMES[index])
+  const numUserNames = constants.HUMAN_NAMES.length
+  const numGroupNames = constants.ANIMAL_NAMES.length
+  const bigPolicy = users > numUserNames || groups > numGroupNames
+  const transform = string => bigPolicy ? makeUnique(string) : string
+
+  const userStrings = Array(users).fill()
+        .map((_, index) => transform(constants.HUMAN_NAMES[index%numUserNames]))
+  const groupStrings = Array(groups).fill()
+        .map((_, index) => transform(constants.ANIMAL_NAMES[index%numGroupNames]))
   const grantObjects = groupStrings.map(group => {
     return {
       role: group,
