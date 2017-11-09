@@ -22,5 +22,5 @@ task :generate, [:u, :g, :k] do |t, args|
 end
 
 task :version do
-  system 'echo Conjur Policy Generator $(< VERSION)'
+  system 'echo Conjur Policy Generator $(cat VERSION)'
 end
