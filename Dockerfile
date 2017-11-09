@@ -8,6 +8,6 @@ RUN gem install -g Gemfile
 
 COPY src ./src
 COPY spec ./spec
-COPY Rakefile .
+COPY Rakefile VERSION ./
 
 ENTRYPOINT [ "rake" ]

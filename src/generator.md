@@ -86,6 +86,7 @@ end
 
 ```ruby
 require_relative './constants'
+include Conjur::PolicyGenerator
 
 def initialize users = 2, groups = 1, usersPerGroup = 1
   @users = users
