@@ -1,0 +1,9 @@
+version: '2'
+services:
+  conjur:
+    image: registry.tld/conjur-appliance-cuke-master:4.9-stable
+    privileged: true
+    volumes:
+      - .:/src:ro
+    ports:
+     - 443:443

@@ -1,0 +1,521 @@
+---
+- !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+- !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+- !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+- !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+- !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+- !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+- !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+- !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+- !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+- !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !user olivia--f8ecc38b-f8c4-4f11-b5e2-3516267eda02
+- !user peggy--b5213e0a-fe9c-4dd0-90a1-989afbbd9feb
+- !user sibyl--95e4dda0-ac3a-40aa-b8c7-07e0415ba1a2
+- !user trent--4916cbbb-05a2-484c-870f-17fa9030f91d
+- !user victor--d411275c-c519-47ae-a646-820a7ad1998d
+- !user wendy--836e06aa-9843-47c1-95a3-2e52e8c37e09
+- !user alice--c831fac5-d8fc-47d3-b346-afda1ad3b842
+- !user bob--17e9e6d7-73c7-4a69-a149-e308024036ae
+- !user carol--525e7639-6946-4f99-afab-9f64e55dac2f
+- !user dan--b2552f3f-a27a-4df5-aad1-42137f534b10
+- !user erin--e3a813fb-e8a5-4fb8-a2c6-e9640d2390fd
+- !user frank--260fc94c-a274-4e8f-b919-71c451946cd4
+- !user grace--5d36d832-6757-4a7f-9de8-3ee61b0ddc78
+- !user heidi--03e2aa61-36db-48b8-ab9e-069c1af0f1c7
+- !user judy--b87e9f77-6fdb-49fb-86a0-d765f38781cd
+- !user mallory--3befb883-8323-450b-9788-8cab01f0f37b
+- !user olivia--fb2d324b-ff1b-47a4-b079-a68c3d6e6fd6
+- !user peggy--5243b760-e34f-4d43-8c18-679667592f03
+- !user sibyl--f593c531-7980-496d-8427-0fed225befce
+- !user trent--5396c872-7389-43df-83f7-4b68177f777a
+- !user victor--3e7c1dbe-50e1-40fc-abf3-b6b585fe6cff
+- !user wendy--962ad3e0-b257-4ab4-82a7-19dc69c87900
+- !user alice--a7ed60c4-8f19-48a7-b724-21579b8fde43
+- !user bob--e2a999d8-c58f-419b-b560-b3b03da5f9e0
+- !user carol--f25ef4cb-a477-4258-9003-126d9f99be32
+- !user dan--12b33eee-b849-40d5-8cf1-8450e7a1b91f
+- !user erin--3f1c477b-6a4b-484a-978e-79a1a88acb9a
+- !user frank--874c5ae3-473b-43fc-8096-7cae18740924
+- !user grace--f1a24bd5-6804-4b84-942a-0eb3dd0ca57a
+- !user heidi--65a5bef8-ad64-4d6e-a506-620b4774c7de
+- !user judy--43ce12bc-57f6-4b47-84d7-a56584dcfa53
+- !user mallory--2cbb74bb-0537-45d9-9e91-d24e280ed53a
+- !user olivia--db3266e7-c9c9-4bdc-a61d-51d856597b92
+- !user peggy--e0769b93-57d9-4366-a411-aeaee3b41a5d
+- !user sibyl--c978f7cb-6909-404c-8f25-f3d60ae03d20
+- !user trent--dbbfdc16-d9b5-4c66-bec6-eff5a05ed830
+- !user victor--03c0a0f0-9927-4f74-8b9d-59264405aa1c
+- !user wendy--8003c748-8bae-4a10-b188-23fe23bb5e6e
+- !user alice--ce8bcc6f-f7d2-43e0-8094-f5d985bd44ef
+- !user bob--80586984-fde5-4466-b77c-2903b327ff2e
+- !user carol--b74b3b99-67ba-46f8-b4f4-583713af1edb
+- !user dan--488cd7fe-31ce-42c3-9576-d88a592f5654
+- !user erin--d9df57c4-2046-4df6-ba39-39ee8c756cfd
+- !user frank--fc458b39-52ef-4067-bdf3-fb14403d95aa
+- !user grace--1e73dd7b-4adb-4721-a089-a2dc66e7929f
+- !user heidi--eb4a57dc-ac36-4456-a42d-32bcb5f9f4ed
+- !user judy--071e50e6-4f74-4d11-aafa-b2f51cda1870
+- !user mallory--97bafdbe-b07e-4981-abe9-ddaa93b598af
+- !user olivia--c1bda287-3df7-40d7-b157-0f070a6ae3c1
+- !user peggy--edfb384a-eedc-40ff-b04d-8b90874d478c
+- !user sibyl--463f89be-d35c-4773-9d84-37cfdc94c829
+- !user trent--23fab15b-f2b7-45ea-a02d-9600c555a8b3
+- !user victor--ca9101c7-0401-4618-afc8-9debffb5da79
+- !user wendy--c1a52d71-21cd-4e6e-8cdd-c314fc9a74b3
+- !user alice--5349de01-7105-4786-ad82-84d6dac48d07
+- !user bob--de018080-2b47-49e8-aef7-b4e205ecaca1
+- !user carol--50f96b32-77a6-4781-ab6e-d1d195abc3c6
+- !user dan--7d792c4a-93c3-4724-b2e6-b928eb310185
+- !user erin--961de422-49e2-44d6-a934-0e65637ab2da
+- !user frank--35ee86ff-6c9d-4102-bcb4-db3e2004a0c8
+- !user grace--3daac1b8-7e3f-4898-bbf0-dd5b5959c402
+- !user heidi--de2f8024-5907-4470-9c2f-d50702301a4d
+- !user judy--5a7d4faa-673b-4ba5-98ae-7d4e19b6b3fa
+- !user mallory--e09c7fb4-73ec-408c-8e4f-bbe2c5a50f44
+- !user olivia--89622cd3-9eaf-4182-bf0d-8a6715a5993f
+- !user peggy--666929f2-24c2-4188-bfe3-0fae87f48242
+- !user sibyl--99541020-c320-466d-9d55-772745cac99b
+- !user trent--68a07810-d07b-421e-8c40-d5179276f85d
+- !user victor--60e0b132-2b72-427b-8afe-a34d21d35483
+- !user wendy--677ea5d8-3ced-4b62-91b9-8c5784c01336
+- !user alice--0be0333c-d19f-4e1e-8b95-7698285941c5
+- !user bob--ec09b4eb-f21d-4d28-a804-dc7b37818ff3
+- !user carol--d1035e73-bc9b-418a-9067-6aa8085bc812
+- !user dan--0dc8c3a3-f32d-48c0-b6a5-527051c672c4
+- !user erin--59fa338c-96d5-4cd4-b646-e17b615b2ea8
+- !user frank--34f69774-6037-4a73-9736-00637e2b948d
+- !user grace--c30c80e0-58ca-4d70-994f-223af1f396ee
+- !user heidi--5b0947db-6f32-44e6-a5a2-767a143d375e
+- !user judy--e842065e-0e88-48b3-9efc-dc8478ec718d
+- !user mallory--5eca00ce-4c37-4e69-8c0d-abe71286941f
+- !user olivia--c7abb1d8-840e-4b7c-abcc-3ee0e1281a3e
+- !user peggy--2b8afeda-0784-4d19-903b-35713e34b86b
+- !user sibyl--512a65e4-7406-4516-a326-d9b5b0a55fff
+- !user trent--86b7bf91-1aa7-4b1d-ba55-71cbdfee5f92
+- !user victor--16f1a1aa-8ccd-4e83-8d19-42bec27a0a66
+- !user wendy--615d2fae-9bf5-4d0d-94fe-f94731979181
+- !user alice--2977d30a-8273-4cd7-b639-5dbe6a41eb5a
+- !user bob--05dcafae-3937-4ae8-8e25-a109ab416ffc
+- !user carol--756d69d2-6adc-4ba5-858d-6cb7213894cd
+- !user dan--b2c9c02e-36d8-47e7-9d5e-4bee7216fa18
+- !group aardvark--f18b1e69-97fa-414f-825a-389874ce9f2a
+- !group bobcat--ad79f224-8e1a-407e-b41b-dbbbdbd42607
+- !group caribou--1246b4a9-5c0a-4d80-bb4c-34d7112ec697
+- !group dugong--4fa4ccde-3ed0-49e2-aef8-42832f02f03a
+- !group elephant--30a0b319-5d3a-4c3b-8995-7d538e700c37
+- !group fossa--1dfa1337-a79a-4578-a026-73d07014b3d2
+- !group giraffe--c17767a2-872b-45d6-9215-b386230b2142
+- !group hedgehog--858749fd-3dff-44ff-b57f-9a1874ee287e
+- !group impala--504a124b-a7fd-4583-b435-327d71720ff5
+- !group jaguar--c1a5488e-dfef-4f9b-b1be-3cb49a013888
+- !group koala--c0d38afa-c208-4a02-8ff0-a8bcd8a8623e
+- !group lynx--e488fdf2-7fd0-4181-8364-0508f9cdd1cc
+- !group moose--7dd191cb-4781-45a3-9295-cd033c851647
+- !group narwhal--8e51574a-84c4-478d-8792-16613b41854a
+- !group otter--13c78cc1-1eab-4d6e-9b0e-6257e1710c33
+- !group possum--b510a2b7-3230-4ca8-819b-5f006511e08b
+- !group raccoon--fb4ad939-49e0-4f63-a8da-b57fd0e9c1d1
+- !group squirrel--4e130219-5cc9-4768-bcf4-77d202788629
+- !group tapir--c68be092-d514-4cd4-ae49-2b81d1b05a43
+- !group walrus--f3624bdc-d2de-449b-814a-3c55983ec439
+- !group zebra--3c68fc5f-98ec-4cff-85b3-f7e250609dbd
+- !group aardvark--b5d5d8bf-1ed9-46f1-b4ba-01bedd02ae34
+- !group bobcat--bcf88d4f-550c-48c4-b423-0f9f78bd34a4
+- !group caribou--66543667-7d20-4cf9-978f-c5d32e01c6c9
+- !group dugong--b9c11a49-a745-465c-9ecb-2a419a37ba5f
+- !group elephant--a3121c5d-edc9-448d-aa39-555be0d01fea
+- !group fossa--d81b3fe7-ca2f-4d47-8f23-2b02acaede71
+- !group giraffe--0e1a32b1-f8e1-47ce-931f-9452892c25d7
+- !group hedgehog--23de0c4d-a803-4c76-870e-07f9e9ebded9
+- !group impala--7162dca5-91fc-4545-97f1-843dc2e2d652
+- !grant
+  role: !group aardvark--f18b1e69-97fa-414f-825a-389874ce9f2a
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group bobcat--ad79f224-8e1a-407e-b41b-dbbbdbd42607
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group caribou--1246b4a9-5c0a-4d80-bb4c-34d7112ec697
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group dugong--4fa4ccde-3ed0-49e2-aef8-42832f02f03a
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group elephant--30a0b319-5d3a-4c3b-8995-7d538e700c37
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group fossa--1dfa1337-a79a-4578-a026-73d07014b3d2
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group giraffe--c17767a2-872b-45d6-9215-b386230b2142
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group hedgehog--858749fd-3dff-44ff-b57f-9a1874ee287e
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group impala--504a124b-a7fd-4583-b435-327d71720ff5
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group jaguar--c1a5488e-dfef-4f9b-b1be-3cb49a013888
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group koala--c0d38afa-c208-4a02-8ff0-a8bcd8a8623e
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group lynx--e488fdf2-7fd0-4181-8364-0508f9cdd1cc
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group moose--7dd191cb-4781-45a3-9295-cd033c851647
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group narwhal--8e51574a-84c4-478d-8792-16613b41854a
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group otter--13c78cc1-1eab-4d6e-9b0e-6257e1710c33
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group possum--b510a2b7-3230-4ca8-819b-5f006511e08b
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group raccoon--fb4ad939-49e0-4f63-a8da-b57fd0e9c1d1
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group squirrel--4e130219-5cc9-4768-bcf4-77d202788629
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group tapir--c68be092-d514-4cd4-ae49-2b81d1b05a43
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group walrus--f3624bdc-d2de-449b-814a-3c55983ec439
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group zebra--3c68fc5f-98ec-4cff-85b3-f7e250609dbd
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group aardvark--b5d5d8bf-1ed9-46f1-b4ba-01bedd02ae34
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group bobcat--bcf88d4f-550c-48c4-b423-0f9f78bd34a4
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group caribou--66543667-7d20-4cf9-978f-c5d32e01c6c9
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group dugong--b9c11a49-a745-465c-9ecb-2a419a37ba5f
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group elephant--a3121c5d-edc9-448d-aa39-555be0d01fea
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group fossa--d81b3fe7-ca2f-4d47-8f23-2b02acaede71
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group giraffe--0e1a32b1-f8e1-47ce-931f-9452892c25d7
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group hedgehog--23de0c4d-a803-4c76-870e-07f9e9ebded9
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
+- !grant
+  role: !group impala--7162dca5-91fc-4545-97f1-843dc2e2d652
+  members:
+    - !user alice--22f9f12f-ce3c-4e09-82b2-c13e72465880
+    - !user bob--98078abc-6cf6-4ce8-95e7-e5c79569a032
+    - !user carol--a2609ae0-68d6-47a3-9dc6-06fdf18a9b31
+    - !user dan--6d108f56-d2d2-4e22-8d6b-eee00d7cdb3c
+    - !user erin--adfbec2a-2ce1-42a6-b4eb-28aff2e4eff9
+    - !user frank--c7bce38b-24d7-450d-8a39-1902e5cce677
+    - !user grace--957fc438-4327-4acc-a95a-3d67edc5d32a
+    - !user heidi--7a098691-7703-4764-8ef3-1f0c246cb177
+    - !user judy--b8dcb6f3-4791-4abd-baad-937a6fa69bbb
+    - !user mallory--ed4ed701-691c-485a-b760-31d3f1c8285f
