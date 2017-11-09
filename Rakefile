@@ -16,7 +16,7 @@ task :generate, [:u, :g, :k] do |t, args|
   groups = args[:g].to_i
   groups = 1 if groups <= 0
   usersPerGroup = args[:k].to_i
-  usersPerGroup = 1 if usersPerGroup <= 0
+  usersPerGroup = 0 if usersPerGroup < 0
   human = Conjur::PolicyGenerator::Humans.new users, groups, usersPerGroup
   puts human.toMAML
 end

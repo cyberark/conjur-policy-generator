@@ -97,7 +97,7 @@ end
 def toMAML
   numUserNames = HUMAN_NAMES.length
   numGroupNames = ANIMAL_NAMES.length
-  bigPolicy = @users > numUserNames or @groups > numGroupNames
+  bigPolicy = @users > numUserNames || @groups > numGroupNames
   transform = -> string {
     if bigPolicy
       makeUnique string
@@ -114,6 +114,7 @@ def toMAML
       :members => userStrings.slice(0, @usersPerGroup)
     }
   } unless @usersPerGroup <= 0
+  grantObjects ||= []
 
   yaml(
     *userStrings.map { |name| user name },
