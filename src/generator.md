@@ -72,11 +72,13 @@ def grant role, *members
     end
   end
 
-  <<~GRANT
+  result = <<~GRANT
     !grant
       role: #{role}
     #{indent renderMembers members}
   GRANT
+  
+  result.chop
 end
 ```
 
@@ -103,8 +105,8 @@ def toMAML
     end
   }
 
-  userStrings = (0..@users).map { |index| transform.(HUMAN_NAMES[index % numUserNames]) }
-  groupStrings = (0..@groups).map { |index| transform.(ANIMAL_NAMES[index % numGroupNames]) }
+  userStrings = (0..@users-1).map { |index| transform.(HUMAN_NAMES[index % numUserNames]) }
+  groupStrings = (0..@groups-1).map { |index| transform.(ANIMAL_NAMES[index % numGroupNames]) }
   grantObjects = groupStrings.map { |group|
     {
       :role => group,

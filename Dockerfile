@@ -1,12 +1,13 @@
-FROM node:9.0.0-alpine
+FROM ruby:2.4.2-alpine
 
-RUN mkdir -p /mom
-WORKDIR /mom
+RUN mkdir -p /generator
+WORKDIR /generator
 
-COPY package.json package-lock.json ./
-RUN npm install
+COPY Gemfile ./
+RUN gem install -g Gemfile
 
 COPY src ./src
-COPY test ./test
+COPY spec ./spec
+COPY Rakefile .
 
-ENTRYPOINT [ "/usr/local/bin/npm" ]
+ENTRYPOINT [ "rake" ]

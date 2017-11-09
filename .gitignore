@@ -2,3 +2,5 @@ node_modules
 /.DS_Store
 src/ruby
 *.DS_Store 
+/spec/humans_spec.rb
+/spec/policies.rb
