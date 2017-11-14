@@ -4,3 +4,4 @@ src/ruby
 /spec/policies.rb
 .bundle
 vendor/
+/loadtest/data_key
