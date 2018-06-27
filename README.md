@@ -9,8 +9,8 @@ Details: [Testing](tests.md)
 You can `bundle install` and `bundle exec rake test`, or you can use the Dockerized environment:
 
 ```shell
-./build.sh
-./test.sh
+bin/build
+bin/test
 ```
 
 ## Making MAMLs
@@ -20,8 +20,8 @@ Implementation: [Policy Generator](src/generator.md)
 You can `bundle install` and `bundle exec rake generate`, or you can use the Dockerized environment:
 
 ```shell
-./build.sh
-./generate.sh
+bin/build
+bin/generate
 ```
 
 You can give three numbers to `generate` to customize the output policy:
@@ -33,8 +33,8 @@ You can give three numbers to `generate` to customize the output policy:
 For example, to generate a policy with 5 users, 2 groups, 3 users per group:
 
 ```shell
-./build.sh
-./generate.sh [5,2,3]
+bin/build
+bon/generate [5,2,3]
 ```
 
 ## Capabilities
