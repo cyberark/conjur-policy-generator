@@ -7,19 +7,19 @@ pipeline {
   stages {
     stage('Build Policy Generator container image') {
       steps {
-        sh './build.sh'
+        sh 'bin/build'
       }
     }
 
     stage('Test Policy Generator') {
       steps {
-        sh './test.sh'
+        sh 'bin/test'
       }
     }
 
     stage('Push Policy Generator container image to internal registry') {
       steps {
-        sh './push-image.sh'
+        sh 'bin/push-image'
       }
     }
   }
