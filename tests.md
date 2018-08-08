@@ -21,6 +21,16 @@ describe Humans do
     expect(described_class.new(5,2,5).toMAML).to eq(policy525)
   end
 end
+
+describe Secrets do
+  it 'generates a default policy' do
+    expect(described_class.new().toMAML).to eq(policySecrets10)
+  end
+
+  it 'generates a policy for 2 secrets with 5 annotations each' do
+    expect(described_class.new(2,5).toMAML).to eq(policySecrets25)
+  end
+end
 ```
 
 ###### file:spec/policies.rb
@@ -40,6 +50,18 @@ end
 def policy525
   <<~EOF
     <<Policy 525>>
+  EOF
+end
+
+def policySecrets10
+  <<~EOF
+    <<Policy: 1 variable with no annotations>>
+  EOF
+end
+
+def policySecrets25
+  <<~EOF
+    <<Policy: 2 variables with 5 annotations each>>
   EOF
 end
 ```
@@ -98,4 +120,32 @@ end
     - !user carol
     - !user dan
     - !user erin
+```
+
+###### Policy: 1 variable with no annotations
+```
+---
+- !variable hydrogen
+```
+
+###### Policy: 2 variables with 5 annotations each
+
+```
+---
+- !variable
+  id: hydrogen
+  annotations:
+    density: value
+    color: value
+    conductivity: value
+    malleability: value
+    luster: value
+- !variable
+  id: lithium
+  annotations:
+    density: value
+    color: value
+    conductivity: value
+    malleability: value
+    luster: value
 ```

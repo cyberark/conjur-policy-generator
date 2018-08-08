@@ -21,6 +21,16 @@ task :generate, [:u, :g, :k] do |t, args|
   puts human.toMAML
 end
 
+task :secrets, [:v, :a] do |t, args|
+  require_relative './src/ruby/generator'
+  variables = args[:v].to_i
+  variables = 1 if variables <= 0
+  annotations = args[:a].to_i
+  annotations = 0 if annotations <= 0
+  secrets = Conjur::PolicyGenerator::Secrets.new variables, annotations
+  puts secrets.toMAML
+end
+
 task :version do
   system 'echo Conjur Policy Generator $(cat VERSION)'
 end

@@ -39,10 +39,12 @@ bon/generate [5,2,3]
 
 ## Capabilities
 
-[Conjur::PolicyGenerator::Humans](src/generator.md#humans-policy-generator)
-creates a MAML policy according to the given parameters.
+### [Conjur::PolicyGenerator::Humans](src/generator.md#humans-policy-generator)
 
-If the policy is small, it will be nice and readable, with users and groups like:
+Creates a MAML policy containing people and groups.
+
+If the policy is small, it will be nice and readable, with users and groups
+like:
 
 ```sh-session
 $ bundle exec rake generate[2,2,0]
@@ -64,6 +66,40 @@ $ bundle exec rake generate[2,200,0] | head -n5
 - !group aardvark--01ba5225-4e25-46a2-971b-1d84ac5cdc9c
 - !group bobcat--200c7a21-3961-44bb-adcc-a64aa024c023
 ```
+
+### [Conjur::PolicyGenerator::Secrets](src/generator.md#secrets-policy-generator)
+
+Creates a MAML policy containing secrets (optionally with annotations.)
+
+If the number of secrets & annotations per secret are small, it will look like
+so:
+
+```sh-session
+$ bundle exec rake secrets[2,0]
+---
+- !variable hydrogen
+- !variable lithium
+$ bundle exec rake secrets[1,2]
+---
+- !variable
+  id: hydrogen
+  annotations:
+    density: value
+    color: value
+```
+
+If the policy is large, it will be appended with random strings to avoid
+collisions:
+
+```sh-session
+$ bundle exec rake secrets[1000,0] | head -n5
+---
+- !variable hydrogen--e885ac44-8daa-46cd-a72f-86f31dd869be
+- !variable lithium--7f604c73-c26d-485b-b8e9-34d68ddd5a64
+- !variable sodium--83ae803d-f574-4b3f-ab87-43bd60270a8b
+- !variable potassium--1a4be938-4fd3-4a35-850f-e7d56c7cc656
+```
+
 
 ## Limitations
 

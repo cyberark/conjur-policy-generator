@@ -9,6 +9,10 @@ module Conjur::PolicyGenerator
   <<Human Names>>
 
   <<Animal Names>>
+
+  <<Variable Names>>
+
+  <<Annotation Names>>
 end
 ```
 
@@ -62,5 +66,33 @@ ANIMAL_NAMES = [
   'tapir',
   'walrus',
   'zebra'
+]
+```
+
+###### Variable Names
+```ruby
+VARIABLE_NAMES = [
+  'hydrogen',
+  'lithium',
+  'sodium',
+  'potassium',
+  'rubidium',
+  'caesium',
+  'francium'
+]
+```
+
+###### Annotation Names
+
+```ruby
+ANNOTATION_NAMES = [
+  'density',
+  'color',
+  'conductivity',
+  'malleability',
+  'luster',
+  'mass',
+  'volume',
+  'length'
 ]
 ```

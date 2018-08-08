@@ -16,6 +16,10 @@ module Conjur
     class Humans
       <<Humans Policy Generator>>
     end
+
+    class Secrets
+      <<Secrets Policy Generator>>
+    end
   end
 end
 ```
@@ -39,6 +43,11 @@ end
 
 def verticalList *children
   children.map { |child| "- #{child}" }
+    .join("\n")
+end
+
+def verticalHash **pairs
+  pairs.map { |key, val| "#{key}: #{val}" }
     .join("\n")
 end
 
@@ -77,7 +86,19 @@ def grant role, *members
       role: #{role}
     #{indent renderMembers members}
   GRANT
-  
+
+  result.chop
+end
+
+def variable name, **annotations
+  return "!variable #{name}" if annotations.length == 0
+  result = <<~VARIABLE
+    !variable
+      id: #{name}
+      annotations:
+    #{indent verticalHash(**annotations), 4}
+  VARIABLE
+
   result.chop
 end
 ```
@@ -120,6 +141,42 @@ def toMAML
     *userStrings.map { |name| user name },
     *groupStrings.map { |name| group name },
     *grantObjects.map { |data| grant group(data[:role]), *data[:members].map { |name| user name }}
+  )
+end
+```
+
+###### Secrets Policy Generator
+```ruby
+require_relative './constants'
+include Conjur::PolicyGenerator
+
+def initialize secrets = 1, annotationsPerSecret = 0
+  @secrets = secrets
+  @annotationsPerSecret = annotationsPerSecret
+end
+
+def toMAML
+  numSecretNames = VARIABLE_NAMES.length
+  numAnnotationNames = ANNOTATION_NAMES.length
+  bigPolicy = @secrets > numSecretNames || @annotationsPerSecret > numAnnotationNames
+  transform = -> string {
+    if bigPolicy
+      makeUnique string
+    else
+      string
+    end
+  }
+
+  secretStrings = (0..@secrets-1).map { |index|
+    transform.(VARIABLE_NAMES[index % numSecretNames])
+  }
+  annotationHash = Hash[
+    *(0..@annotationsPerSecret-1).map { |index|
+      [transform.(ANNOTATION_NAMES[index % numAnnotationNames]).to_sym, "value"]
+    }.flatten]
+
+  yaml(
+    *secretStrings.map { |name| variable name, **annotationHash }
   )
 end
 ```
