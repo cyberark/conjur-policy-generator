@@ -1,6 +1,6 @@
 src/ruby
 *.DS_Store 
-/spec/humans_spec.rb
+/spec/*_spec.rb
 /spec/policies.rb
 .bundle
 vendor/

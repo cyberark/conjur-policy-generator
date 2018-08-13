@@ -1,5 +1,60 @@
 # Policy Generator Tests
 
+To run these tests:
+```sh-session
+$ bin/build
+Knot writing file: ./spec/humans_spec.rb
+[...]
+Sending build context to Docker daemon  38.63MB
+Step 1/9 : FROM ruby:2.4.2-alpine
+[...]
+Successfully built 264c502fc630
+Successfully tagged conjur-policy-generator:latest
+$ bin/test
+/usr/local/bin/ruby -I/usr/local/bundle/gems/rspec-support-3.7.1/lib:/usr/local/bundle/gems/rspec-core-3.7.1/lib /usr/local/bundle/gems/rspec-core-3.7.1/exe/rspec --pattern spec/\*\*\{,/\*/\*\*\}/\*_spec.rb
+.......
+
+Finished in 0.00835 seconds (files took 0.11772 seconds to load)
+7 examples, 0 failures
+```
+
+### Design & Purpose of Tests
+
+These tests compare a policy from a given generator to a pre-computed "correct"
+policy. This ensures that refactoring and changes in the helpers or program
+structure introduced during development of new policy generators doesn't break
+or change the formatting of existing policy generators.
+
+A future goal for testing would be to actually load these into a Conjur server,
+verifying that the generated policies are syntactically correct and load
+cleanly.
+
+#### Literate testing note
+
+Policy text (like `<<Policy 211>>`) will be interpolated by `knot` from the
+subheading with the same name (eg `###### Policy 211`) when you tangle.
+
+Subheadings with filenames like `###### file:spec/humans_spec.rb` will have
+their following code block converted into the named file.
+
+You can view the final spec files like so:
+```sh-session
+$ bundle exec rake tangle
+mkdir -p src/ruby
+Knot writing file: ./spec/humans_spec.rb
+Knot writing file: ./spec/policies.rb
+Knot writing file: ./spec/secret_control_template_spec.rb
+Knot writing file: ./spec/secrets_spec.rb
+Knot writing file: src/ruby/constants.rb
+Knot writing file: src/ruby/generator.rb
+$ ls spec
+humans_spec.rb			secrets_spec.rb
+policies.rb			spec_helper.rb
+secret_control_template_spec.rb
+```
+
+## Test Implementation
+
 ###### file:spec/humans_spec.rb
 ```ruby
 require_relative '../src/ruby/generator'
@@ -21,6 +76,15 @@ describe Humans do
     expect(described_class.new(5,2,5).toMAML).to eq(policy525)
   end
 end
+```
+
+###### file:spec/secrets_spec.rb
+```ruby
+require_relative '../src/ruby/generator'
+require_relative './policies'
+
+include RSpec
+include Conjur::PolicyGenerator
 
 describe Secrets do
   it 'generates a default policy' do
@@ -32,6 +96,29 @@ describe Secrets do
   end
 end
 ```
+
+###### file:spec/secret_control_template_spec.rb
+```ruby
+require_relative '../src/ruby/generator'
+require_relative './policies'
+
+include RSpec
+include Conjur::PolicyGenerator::Template
+
+describe SecretControl do
+  it 'generates a default policy' do
+    expect(described_class.new().toMAML).to eq(templateSecretControlDefault)
+  end
+
+  it 'generates a companion policy with a layer & host factory' do
+    expect(described_class.new('example-with-host-factory', 2, 3,
+                               include_hostfactory: true).toMAML
+          ).to eq(templateSecretControlWithHF)
+  end
+end
+```
+
+## Target Policies for Load Testing
 
 ###### file:spec/policies.rb
 ```ruby
@@ -64,7 +151,21 @@ def policySecrets25
     <<Policy: 2 variables with 5 annotations each>>
   EOF
 end
+
+def templateSecretControlDefault
+  <<~EOF
+    <<Policy: default template policy for secret control>>
+  EOF
+end
+
+def templateSecretControlWithHF
+  <<~EOF
+    <<Policy: template policy for secret control with host factory policy>>
+  EOF
+end
 ```
+
+### Humans
 
 ###### Policy 211
 ```yaml
@@ -122,6 +223,8 @@ end
     - !user erin
 ```
 
+### Secrets
+
 ###### Policy: 1 variable with no annotations
 ```
 ---
@@ -148,4 +251,119 @@ end
     conductivity: value
     malleability: value
     luster: value
+```
+
+## Target Policies for Template Generators
+
+### Secret Control
+
+###### Policy: default template policy for secret control
+
+```
+---
+- !policy
+  id: example
+  body:
+    - !policy
+      id: alfa
+      body:
+        # Secret Declarations
+        - &secrets
+          - !variable hydrogen
+          - !variable lithium
+        
+        # User & Manager Groups
+        - !group secrets-users
+        - !group secrets-managers
+        - !permit
+          role: !group secrets-users
+          privileges: [ read, execute ]
+          resources: *secrets
+        - !permit
+          role: !group secrets-managers
+          privileges: [ read, execute, update ]
+          resources: *secrets
+    - !policy
+      id: bravo
+      body:
+        # Secret Declarations
+        - &secrets
+          - !variable sodium
+          - !variable potassium
+        
+        # User & Manager Groups
+        - !group secrets-users
+        - !group secrets-managers
+        - !permit
+          role: !group secrets-users
+          privileges: [ read, execute ]
+          resources: *secrets
+        - !permit
+          role: !group secrets-managers
+          privileges: [ read, execute, update ]
+          resources: *secrets
+```
+
+###### Policy: template policy for secret control with host factory policy
+
+```
+---
+- !policy
+  id: example-with-host-factory
+  body:
+    - !policy
+      id: alfa
+      body:
+        # Secret Declarations
+        - &secrets
+          - !variable hydrogen
+          - !variable lithium
+          - !variable sodium
+        
+        # User & Manager Groups
+        - !group secrets-users
+        - !group secrets-managers
+        - !permit
+          role: !group secrets-users
+          privileges: [ read, execute ]
+          resources: *secrets
+        - !permit
+          role: !group secrets-managers
+          privileges: [ read, execute, update ]
+          resources: *secrets
+    - !policy
+      id: bravo
+      body:
+        # Secret Declarations
+        - &secrets
+          - !variable potassium
+          - !variable rubidium
+          - !variable caesium
+        
+        # User & Manager Groups
+        - !group secrets-users
+        - !group secrets-managers
+        - !permit
+          role: !group secrets-users
+          privileges: [ read, execute ]
+          resources: *secrets
+        - !permit
+          role: !group secrets-managers
+          privileges: [ read, execute, update ]
+          resources: *secrets
+    
+    # === Layer for Automated Secret Access ===
+    - !policy
+      id: hosts
+      annotations:
+        description: Layer & Host Factory for machines that can read secrets
+      body:
+        - !layer
+        - !host-factory
+    - !grant
+      role: !group alfa/secrets-users
+      member: !layer hosts
+    - !grant
+      role: !group bravo/secrets-users
+      member: !layer hosts
 ```
