@@ -5,14 +5,16 @@ These are used for user and group names in generated policies.
 ###### file:ruby/constants.rb
 
 ```ruby
-module Conjur::PolicyGenerator
-  <<Human Names>>
+module Conjur
+  module PolicyGenerator
+    <<Human Names>>
 
-  <<Animal Names>>
+    <<Animal Names>>
 
-  <<Variable Names>>
+    <<Variable Names>>
 
-  <<Annotation Names>>
+    <<Annotation Names>>
+  end
 end
 ```
 
