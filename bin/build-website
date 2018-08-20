@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+cd web
+inesita build \
+        --force \
+        --destination-dir ../docs
