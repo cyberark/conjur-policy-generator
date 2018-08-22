@@ -1,6 +1,4 @@
-class Policy
-  include Inesita::Component
-
+module Policy
   def inc variable
     lambda {
       store.increase variable
@@ -16,7 +14,7 @@ class Policy
   end
 
   def render_numeric_control variable, description
-    div.numeric_control.input_group.mb_3.col_sm do
+    div.numeric_control.input_group.mb_2 do
       div.input_group_prepend do
         label.input_group_text do
           text description
@@ -57,7 +55,7 @@ class Policy
     end
   end
 
-  def render
+  def render_policy
     h4 do
       text props[:header]
     end if props[:header]
@@ -71,14 +69,5 @@ class Policy
       text store.policy_text
     end
     render_download_button
-    div.footer.container style: {position: 'fixed',
-                                 bottom: '0px',
-                                 left: '0px',
-                                 right: '0px',
-                                 padding: '1rem'} do
-
-      render_numeric_control :secrets, 'Number of secrets:'
-      render_numeric_control :annotations_per_secret, 'Annotations per secret:'
-    end
   end
 end
