@@ -7,13 +7,25 @@ These are used for user and group names in generated policies.
 ```ruby
 module Conjur
   module PolicyGenerator
-    <<Human Names>>
+    HUMAN_NAMES = [
+      '<<Human Names>>',
+    ]
 
-    <<Animal Names>>
+    ANIMAL_NAMES = [
+      '<<Animal Names>>',
+    ]
 
-    <<Variable Names>>
+    VARIABLE_NAMES = [
+      '<<Variable Names>>',
+    ]
 
-    <<Annotation Names>>
+    ANNOTATION_NAMES = [
+      '<<Annotation Names>>',
+    ]
+
+    NATO_ALPHABET = [
+      '<<NATO Alphabet>>',
+    ]
   end
 end
 ```
@@ -21,80 +33,104 @@ end
 ###### Human Names
 Source: https://en.wikipedia.org/wiki/Alice_and_Bob
 
-```ruby
-HUMAN_NAMES = [
-  'alice',
-  'bob',
-  'carol',
-  'dan',
-  'erin',
-  'frank',
-  'grace',
-  'heidi',
-  'judy',
-  'mallory',
-  'olivia',
-  'peggy',
-  'sibyl',
-  'trent',
-  'victor',
-  'wendy'
-]
+```
+alice
+bob
+carol
+dan
+erin
+frank
+grace
+heidi
+judy
+mallory
+olivia
+peggy
+sibyl
+trent
+victor
+wendy
 ```
 
 ###### Animal Names
 Source: http://www.naturalhistoryonthenet.com/Mammals/a-z.htm
 
-```ruby
-ANIMAL_NAMES = [
-  'aardvark',
-  'bobcat',
-  'caribou',
-  'dugong',
-  'elephant',
-  'fossa',
-  'giraffe',
-  'hedgehog',
-  'impala',
-  'jaguar',
-  'koala',
-  'lynx',
-  'moose',
-  'narwhal',
-  'otter',
-  'possum',
-  'raccoon',
-  'squirrel',
-  'tapir',
-  'walrus',
-  'zebra'
-]
+```
+aardvark
+bobcat
+caribou
+dugong
+elephant
+fossa
+giraffe
+hedgehog
+impala
+jaguar
+koala
+lynx
+moose
+narwhal
+otter
+possum
+raccoon
+squirrel
+tapir
+walrus
+zebra
 ```
 
 ###### Variable Names
-```ruby
-VARIABLE_NAMES = [
-  'hydrogen',
-  'lithium',
-  'sodium',
-  'potassium',
-  'rubidium',
-  'caesium',
-  'francium'
-]
+```
+hydrogen
+lithium
+sodium
+potassium
+rubidium
+caesium
+francium
 ```
 
 ###### Annotation Names
 
-```ruby
-ANNOTATION_NAMES = [
-  'density',
-  'color',
-  'conductivity',
-  'malleability',
-  'luster',
-  'mass',
-  'volume',
-  'length'
-]
+```
+density
+color
+conductivity
+malleability
+luster
+mass
+volume
+length
+```
+
+###### NATO Alphabet
+As per https://en.wikipedia.org/wiki/NATO_phonetic_alphabet
+
+```
+alfa
+bravo
+charlie
+delta
+echo
+foxtrot
+golf
+hotel
+india
+juliett
+kilo
+lima
+mike
+november
+oscar
+papa
+quebec
+romeo
+sierra
+tango
+uniform
+victor
+whiskey
+x-ray
+yankee
+zulu
 ```

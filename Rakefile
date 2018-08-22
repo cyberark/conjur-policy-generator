@@ -31,6 +31,21 @@ task :secrets, [:v, :a] do |t, args|
   puts secrets.toMAML
 end
 
+task :control_secrets,
+     [:name, :groups, :secrets_per_group, :include_hostfactory] do |t, args|
+  require_relative './src/ruby/generator'
+  name = args[:name]
+  secret_groups = args[:groups].to_i
+  secrets_per_group = args[:secrets_per_group].to_i
+  include_hostfactory = args[:include_hostfactory].to_s.downcase == 'true'
+  secret_control = Conjur::PolicyGenerator::Template::
+                     SecretControl.new name,
+                                       secret_groups,
+                                       secrets_per_group,
+                                       include_hostfactory
+  puts secret_control.toMAML
+end
+
 task :version do
   system 'echo Conjur Policy Generator $(cat VERSION)'
 end

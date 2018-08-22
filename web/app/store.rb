@@ -4,14 +4,24 @@ class Store
   attr_reader :supported_generators
 
   def init
-    change_generator :secrets
+    change_generator :secret_control
   end
 
   def supported_generators
     {
+      secret_control: {
+        generator: Conjur::PolicyGenerator::Template::SecretControl,
+        name: 'Secret Control',
+        defaults: {
+          application_name: 'myapp',
+          secret_groups: 1,
+          secrets_per_group: 1,
+          include_hostfactory: false
+        }
+      },
       humans: {
         generator: Conjur::PolicyGenerator::Humans,
-        name: 'Humans',
+        name: 'Humans & Groups',
         defaults: {
           users: 2,
           groups: 1,
@@ -20,12 +30,12 @@ class Store
       },
       secrets: {
         generator: Conjur::PolicyGenerator::Secrets,
-        name: 'Secrets',
+        name: 'Secrets Only',
         defaults: {
           secrets: 1,
           annotations_per_secret: 1
         }
-      }
+      },
     }
   end
 
@@ -50,6 +60,10 @@ class Store
 
   def decrease variable
     @variables[variable] = value(variable) - 1
+  end
+
+  def set variable, value
+    @variables[variable] = value
   end
 
   def policy_text
