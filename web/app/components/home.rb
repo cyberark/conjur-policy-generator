@@ -2,11 +2,13 @@ class Home
   include Inesita::Component
 
   def render
-    div.bg_light style: {'margin-bottom': '10rem'} do
+    div do
       case store.current_generator
-      when :secrets
+      when 'secret_control'
+        component SecretControlPolicy
+      when 'secrets'
         component SecretsPolicy
-      when :humans
+      when 'humans'
         component HumansPolicy
       else
         text "Error: can't show the policy (#{store.current_generator}, #{store.current_generator.class})"

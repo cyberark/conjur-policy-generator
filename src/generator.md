@@ -110,7 +110,7 @@ def policy name, *children, **annotations
       id: #{name}
     #{indent renderAnnotations(annotations) if not annotations.empty?}
   POLICY
-  result.chomp! if annotations.empty?
+  result = result.chomp if annotations.empty?
   result += indent renderBody(children) if not children.empty?
   result.chomp
 end

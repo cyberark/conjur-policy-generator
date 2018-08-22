@@ -13,21 +13,52 @@ module Policy
     }
   end
 
-  def render_numeric_control variable, description
+  def toggle variable
+    lambda { |e|
+      store.set variable, e.target.checked
+      render!
+    }
+  end
+
+  def update variable
+    lambda { |e|
+      store.set variable, e.target.value
+      render!
+    }
+  end
+
+  def generic_control description, extra_prepend=lambda{}, &block
     div.numeric_control.input_group.mb_2 do
       div.input_group_prepend do
         label.input_group_text do
           text description
         end
-        button.btn.btn_outline_secondary style: {background: 'white'},
-                                         onclick: dec(variable) do
-          text '-'
-        end
+        extra_prepend.()
       end
-      input.form_control.text_center type: "text",
+      yield if block_given?
+    end
+  end
+
+  def render_text_control variable, description
+    generic_control description do
+      input.form_control type: 'text',
                          value: store.value(variable),
-                         disabled: true,
-                         style: {'max-width': '3em'}
+                         oninput: update(variable),
+                         style: {'max-width': '20ex'}
+    end
+  end
+
+  def render_numeric_control variable, description
+    generic_control description, lambda {
+      button.btn.btn_outline_secondary style: {background: 'white'},
+                                       onclick: dec(variable) do
+        text '-'
+      end
+    } do
+      input.form_control.text_center type: 'text',
+                                     value: store.value(variable),
+                                     disabled: true,
+                                     style: {'max-width': '3em'}
       div.input_group_append do
         button.btn.btn_outline_secondary style: {background: 'white'},
                                          onclick: inc(variable) do
@@ -35,6 +66,17 @@ module Policy
         end
       end
     end
+  end
+
+  def render_boolean_control variable, description
+    generic_control description, lambda {
+      div.input_group_text do
+        input type: 'checkbox',
+              value: store.value(variable),
+              onchange: toggle(variable),
+              aria: {label: description}
+      end
+    }
   end
 
   def render_download_button
@@ -56,18 +98,33 @@ module Policy
   end
 
   def render_policy
-    h4 do
-      text props[:header]
-    end if props[:header]
-    div style: {'font-family': 'monospace',
-                'white-space': 'pre',
-                padding: '8px',
-                'padding-bottom': '2.5rem',
-                'border-bottom': '3px dashed white',
-                margin: '8px',
-        } do
-      text store.policy_text
+    div.bg_light do
+      h4 do
+        text props[:header]
+      end if props[:header]
+      div style: {'font-family': 'monospace',
+                  'white-space': 'pre',
+                  padding: '8px',
+                  'padding-bottom': '2.5rem',
+                  'border-bottom': '3px dashed white',
+                  margin: '8px',
+                 } do
+        text store.policy_text
+      end
     end
     render_download_button
+  end
+
+  def render_footer &block
+    div.footer.container style: {position: 'fixed',
+                                 bottom: '0px',
+                                 left: '0px',
+                                 right: '0px',
+                                } do
+      yield
+    end
+    div.container style: {visibility: 'hidden'} do
+      yield
+    end
   end
 end
