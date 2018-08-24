@@ -80,7 +80,7 @@ module Policy
   end
 
   def render_download_button
-    data_encoded = `btoa(#{store.policy_text})`
+    data_encoded = ::Base64.encode64 store.policy_text
     uri = "data:application/yaml;base64,#{data_encoded}"
     div.input_group style: {padding: '1rem',
                             'margin-top': '-0.5rem',

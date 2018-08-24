@@ -6,6 +6,7 @@ require 'inesita-router'
 require 'router'
 require 'store'
 
+require 'base64'
 # require all components
 require_tree './components'
 # require policy library
