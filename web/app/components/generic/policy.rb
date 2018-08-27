@@ -88,26 +88,25 @@ module Policy
       a href: uri,
         target: '_blank',
         download: 'policy.yml',
-        style: {border: '1px solid #d4d4d4',
-                'border-radius': '5px'} do
+        style: {background: 'white'} do
         span.input_group_btn do
-          button.btn.btn_default 'Download Policy YAML'
+          button.btn.btn_default.btn_secondary 'Download Policy YAML'
         end
       end
     end
   end
 
   def render_policy
-    div.bg_light do
+    div.wrapper_policy do
       h4 do
         text props[:header]
       end if props[:header]
       div style: {'font-family': 'monospace',
+                  'color': 'white',
                   'white-space': 'pre',
                   padding: '8px',
                   'padding-bottom': '2.5rem',
                   'border-bottom': '3px dashed white',
-                  margin: '8px',
                  } do
         text store.policy_text
       end
@@ -116,14 +115,7 @@ module Policy
   end
 
   def render_footer &block
-    div.footer.container style: {position: 'fixed',
-                                 bottom: '0px',
-                                 left: '0px',
-                                 right: '0px',
-                                } do
-      yield
-    end
-    div.container style: {visibility: 'hidden'} do
+    div.policy_addition_sidebar do
       yield
     end
   end
