@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [[ $1 == "--stop" ]]; then
+    docker-compose down
+    exit
+fi
+
+bin/build-website
+docker-compose up -d
+echo 'Running dev server on http://localhost:9292'

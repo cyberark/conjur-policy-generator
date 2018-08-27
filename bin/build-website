@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-cd web
-inesita build \
-        --force \
-        --destination-dir ../docs
+bin/build
+docker build -f Dockerfile.web -t conjur-policy-generator-web .
+docker run --rm \
+       --volume $PWD/docs:/dist \
+       conjur-policy-generator-web build --force --destination-dir /dist

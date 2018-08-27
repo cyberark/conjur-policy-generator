@@ -1,0 +1,12 @@
+FROM conjur-policy-generator
+RUN apk add --update build-base libffi-dev && \
+    mkdir ./web
+WORKDIR ./web
+
+COPY web/Gemfile web/Gemfile.lock .
+RUN gem install -g Gemfile
+
+COPY web .
+RUN rm -rf dist
+
+ENTRYPOINT [ "inesita" ]

@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  dev-server:
+    image: conjur-policy-generator-web
+    build: Dockerfile.web
+    command: server -p 80 -h 0.0.0.0
+    volumes:
+      - ".:/generator"
+    ports:
+      - "9292:80"
+      - "23654:23654"
