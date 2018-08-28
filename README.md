@@ -12,6 +12,8 @@ You can `bundle install` and `bundle exec rake test`, or you can use the Dockeri
 bin/build
 bin/test
 ```
+## WEB-UI
+Details: [Web-UI](web/README.md)
 
 ## Making MAMLs
 
