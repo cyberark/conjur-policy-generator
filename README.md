@@ -12,31 +12,34 @@ You can `bundle install` and `bundle exec rake test`, or you can use the Dockeri
 bin/build
 bin/test
 ```
-## WEB-UI
+## Web UI
+
 Details: [Web-UI](web/README.md)
 
-## Making MAMLs
+The web UI is live here: https://cyberark.github.io/conjur-policy-generator
+
+## Making MAMLs (policies)
 
 Implementation: [Policy Generator](src/generator.md)
 
-You can `bundle install` and `bundle exec rake generate`, or you can use the Dockerized environment:
+MAML is short for Machine Authorization Markup Language, and the output of each
+policy generator is in MAML. Using a generator requires a few steps:
+
+You can `bundle install` and `bundle exec rake generate`, or you can use the
+Dockerized environment:
 
 ```shell
 bin/build
 bin/generate
 ```
 
-You can give three numbers to `generate` to customize the output policy:
-
-* number of users
-* number of groups
-* number of users per group
+The `generate` script uses the "Humans" generator described below.
 
 For example, to generate a policy with 5 users, 2 groups, 3 users per group:
 
 ```shell
 bin/build
-bon/generate [5,2,3]
+bin/generate [5,2,3]
 ```
 
 ## Capabilities
@@ -102,11 +105,76 @@ $ bundle exec rake secrets[1000,0] | head -n5
 - !variable potassium--1a4be938-4fd3-4a35-850f-e7d56c7cc656
 ```
 
+### [Conjur::PolicyGenerator::Template::SecretControl](src/generator.md#secret-control-template-generator)
 
-## Limitations
+Creates a MAML policy with nested sub-policies, suitable for providing
+fine-grained control over sets of application secrets.
 
-`generate` has no other generators or options. Here's a wish list:
+If the number of secrets & sets is small, it'll look like so:
 
-* N databases with a url, username and password, and a secrets-users group, owned by a distinct group
-* N applications with a layer and 10 secrets each, owned by a distinct group
-* Grant each of N secrets-users database groups to one of the N application layers
+```sh-session
+$ bundle exec rake control_secrets[myapp,1,1]
+---
+- !policy
+  id: myapp
+  body:
+    - !policy
+      id: alfa
+      body:
+        # Secret Declarations
+        - &secrets
+          - !variable hydrogen
+        
+        # User & Manager Groups
+        - !group secrets-users
+        - !group secrets-managers
+        - !permit
+          role: !group secrets-users
+          privileges: [ read, execute ]
+          resources: *secrets
+        - !permit
+          role: !group secrets-managers
+          privileges: [ read, execute, update ]
+          resources: *secrets
+```
+
+If you want to include a hostfactory for automated enrollment of new hosts, you
+can pass `true` as the last argument, like so:
+
+```sh-session
+$ bundle exec rake control_secrets[myapp,1,1,true]
+---
+- !policy
+  id: myapp
+  # [...same as before, plus...]
+    # === Layer for Automated Secret Access ===
+    - !policy
+      id: hosts
+      annotations:
+        description: Layer & Host Factory for machines that can read secrets
+      body:
+        - !layer
+        - !host-factory
+    - !grant
+      role: !group alfa/secrets-users
+      member: !layer hosts
+```
+
+With a large number of secrets, or of secret sets, IDs will be appended with
+random strings to ensure uniqueness:
+
+```sh-session
+$ bundle exec rake control_secrets[myapp,10,10] | head -n12
+---
+- !policy
+  id: myapp
+  body:
+    - !policy
+      id: alfa--822847c1-b57b-43bc-9ceb-b0f3c56681c1
+      body:
+        # Secret Declarations
+        - &secrets
+          - !variable hydrogen--745a35f7-f501-4963-9d35-7b32c36cc583
+          - !variable lithium--cf1cdd49-ecbe-4925-8e2c-b538d9a44ccf
+          - !variable sodium--f874fb97-1a84-4cea-b200-09eee4b8ca00
+```
