@@ -5,6 +5,8 @@ class Home
     case store.current_generator
     when 'secret_control'
       component SecretControlPolicy
+    when 'k8s'
+      component KubernetesPolicy
     when 'secrets'
       component SecretsPolicy
     when 'humans'
