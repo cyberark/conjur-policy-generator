@@ -16,7 +16,9 @@ bin/test
 
 Details: [Web-UI](web/README.md)
 
-The web UI is live here: https://cyberark.github.io/conjur-policy-generator
+The web UI is live here: [https://cyberark.github.io/conjur-policy-generator][app-url]
+
+[app-url]: https://cyberark.github.io/conjur-policy-generator
 
 ## Making MAMLs (policies)
 
@@ -178,3 +180,18 @@ $ bundle exec rake control_secrets[myapp,10,10] | head -n12
           - !variable lithium--cf1cdd49-ecbe-4925-8e2c-b538d9a44ccf
           - !variable sodium--f874fb97-1a84-4cea-b200-09eee4b8ca00
 ```
+
+### [Conjur::PolicyGenerator::Template::Kubernetes](src/generator.md#kubernetes-template-generator)
+
+Creates a template for controlling application secrets via authn-Kubernetes,
+like the one in [our demo][k8s-demo].
+
+[k8s-demo]: https://github.com/conjurdemos/kubernetes-conjur-demo/tree/master/policy/templates
+
+It's a lot of text to paste here, so check it out in the [live app][app-url]
+(select "Authn-Kubernetes" in the upper right hand corner) or check out the
+demo, which has similar code.
+
+In summary: it contains a few groups to enable separation of duties, then it has
+a few policies to control app secrets, permitted identities, and the Conjur
+certificate authority.

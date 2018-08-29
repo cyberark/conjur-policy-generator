@@ -25,6 +25,10 @@ module Conjur
       class SecretControl
         <<Secret Control Template Generator>>
       end
+
+      class Kubernetes
+        <<Kubernetes Template Generator>>
+      end
     end
   end
 end
@@ -74,7 +78,7 @@ def inlineList *children
   "[ #{children.join ', '} ]"
 end
 
-def renderAnnotations hash
+def render_annotations hash
   <<~ANNOTATIONS
     annotations:
     #{indent verticalHash(**hash)}
@@ -96,7 +100,7 @@ def yaml *children
   YAML
 end
 
-def policy name, *children, **annotations
+def policy name, *children, owner: nil, **annotations
   return "!policy #{name}" if children.empty? and annotations.empty?
   def renderBody children
     <<~BODY
@@ -108,9 +112,9 @@ def policy name, *children, **annotations
   result = <<~POLICY
     !policy
       id: #{name}
-    #{indent renderAnnotations(annotations) if not annotations.empty?}
   POLICY
-  result = result.chomp if annotations.empty?
+  result += indent("owner: #{owner}")+"\n" if not owner.nil?
+  result += indent(render_annotations(annotations))+"\n" if not annotations.empty?
   result += indent renderBody(children) if not children.empty?
   result.chomp
 end
@@ -123,12 +127,25 @@ def group name
   "!group #{name}"
 end
 
-def host name
-  "!host #{name}"
+def host name=nil, **annotations
+  return "!host #{name}" if annotations.empty?
+  result = '!host'
+  result += "\n" + indent('id: ') + name unless name.nil?
+  result += "\n" + indent(render_annotations annotations) unless annotations.empty?
 end
 
-def layer name=nil
-  "!layer#{' ' + name if not name.nil?}"
+def webservice name=nil, **annotations
+  return "!webservice#{' ' + name unless name.nil?}" if annotations.empty?
+  result = '!webservice'
+  result += "\n" + indent('id: ') + name unless name.nil?
+  result += "\n" + indent(render_annotations annotations) unless annotations.empty?
+end
+
+def layer name=nil, **annotations
+  return "!layer#{' ' + name unless name.nil?}" if annotations.empty?
+  result = '!layer'
+  result += "\n" + indent('id: ') + name unless name.nil?
+  result += "\n" + indent(render_annotations annotations) unless annotations.empty?
 end
 
 def host_factory name=nil
@@ -171,7 +188,7 @@ def variable name, **annotations
   result = <<~VARIABLE
     !variable
       id: #{name}
-    #{indent renderAnnotations annotations}
+    #{indent render_annotations annotations}
   VARIABLE
 
   result.chomp
@@ -262,6 +279,11 @@ These functions generate template policies designed to serve as the starting
 point for produciton policies.
 
 ###### Secret Control Template Generator
+
+This is a classic pattern for controlling sensitive secrets: for each group of
+secrets under control, we create a group that can only `read` and `update` those
+secrets, then we create another group which can also `update` them.
+
 ```ruby
 require_relative './constants'
 include Conjur::PolicyGenerator
@@ -331,6 +353,101 @@ def toMAML
            },
            *(render_hosts(groupStrings) if @include_hostfactory)
           )
+  )
+end
+```
+
+###### Kubernetes Template Generator
+
+This template is based on the one created for the Conjur Kubernetes demo:
+https://github.com/conjurdemos/kubernetes-conjur-demo/tree/master/policy/templates
+
+```ruby
+require_relative './constants'
+include Conjur::PolicyGenerator
+
+def initialize app_name='myapp',
+               app_namespace='myorg',
+               authenticator_id='authenticator'
+  @app_name = app_name
+  @app_namespace = app_namespace
+  @authenticator_id = authenticator_id
+end
+
+def toMAML
+  yaml(
+    comment('Groups for separation of duties'),
+    group('cluster-admin'),
+    group('devops'),
+    group('secrets-admin'),
+    blank_line,
+    policy('secrets',
+           variable('db-password'),
+           permit(layer("/#{@app_name}"),
+                  ['read', 'execute'],
+                  variable('db-password')),
+           owner: group('secrets-admin'),
+           description: 'grants secrets access to application layers'
+          ),
+    blank_line,
+    policy(@app_name,
+           layer,
+           blank_line,
+           comment(<<~COMMENT
+             Add authn-k8s identities to application layer so its roles inherit
+             app's permissions
+           COMMENT
+                  ),
+           grant(layer,
+                 layer("/conjur-authn-k8s/#{@authenticator_id}/apps")),
+           owner: group('devops'),
+           description: <<~DESCRIPTION
+             |
+               This policy connects authn identities to an application identity.
+               It defines a layer named for an application that contains the
+               whitelisted identities that can authenticate to the authn-k8s
+               endpoint. Any permissions granted to the application layer will
+               be inherited by the whitelisted authn identities, thereby
+               granting access to the authenticated identity.)
+           DESCRIPTION
+          ),
+    blank_line,
+    comment('This policy defines an authn-k8s endpoint, CA creds,'),
+    comment('and a layer for whitelisted identities permitted to authenticate to it'),
+    blank_line,
+    policy("conjur/authn-k8s/#{@authenticator_id}",
+           webservice(description: 'authn service for the cluster'),
+           blank_line,
+           policy('ca',
+                  variable('cert',
+                           description: 'CA cert for Kubernetes Pods'),
+                  variable('key',
+                           description: 'CA key for Kubernetes Pods')),
+           blank_line,
+           comment('permit layer of authn ids for the authn service'),
+           permit(layer("/conjur/authn-k8s/#{@authenticator_id}/apps"),
+                  ['read', 'authenticate'],
+                  webservice),
+           policy('apps',
+                  layer(description: 'Identities in this layer are permitted to use authn-k8s'),
+                  taggedList('hosts',
+                             host("#{@app_namespace}/*/*",
+                                  :'kubernetes/authentication-container-name' => 'authenticator',
+                                  openshift: 'true'),
+                             host("#{@app_namespace}/service-account/#{@app_name}-api-sidecar",
+                                  :'kubernetes/authentication-container-name' => 'authenticator',
+                                  kubernetes: 'true'),
+                             host("#{@app_namespace}/service-account/#{@app_name}-api-init",
+                                  :'kubernetes/authentication-container-name' => 'authenticator',
+                                  kubernetes: 'true')),
+                  grant(layer,
+                       '*hosts'),
+                  owner: group('devops'),
+                  description: 'Identities permitted to use authn-k8s'
+                 ),
+           owner: group('cluster-admin'),
+           description: 'Namespace definitions for the Conjur cluster'
+          ),
   )
 end
 ```
