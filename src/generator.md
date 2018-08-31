@@ -266,11 +266,11 @@ point for produciton policies.
 require_relative './constants'
 include Conjur::PolicyGenerator
 
-def initialize application_name = 'example',
+def initialize policy_name = 'example',
                secret_groups = 2,
                secrets_per_group = 2,
                include_hostfactory = false
-  @application_name = application_name
+  @policy_name = policy_name
   @secret_groups = secret_groups
   @secrets_per_group = secrets_per_group
   @include_hostfactory = include_hostfactory
@@ -310,7 +310,7 @@ def toMAML
   end
 
   yaml(
-    policy(@application_name,
+    policy(@policy_name,
            *secretStrings.each_slice(@secrets_per_group).with_index.map {
              |secrets, group_index|
              policy(groupStrings[group_index],

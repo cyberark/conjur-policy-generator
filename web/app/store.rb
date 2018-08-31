@@ -13,7 +13,7 @@ class Store
         generator: Conjur::PolicyGenerator::Template::SecretControl,
         name: 'Secret Control',
         defaults: {
-          application_name: 'myapp',
+          policy_name: 'myapp',
           secret_groups: 1,
           secrets_per_group: 1,
           include_hostfactory: false
