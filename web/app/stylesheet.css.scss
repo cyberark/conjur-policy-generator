@@ -68,8 +68,13 @@ h2 {
   font-size: 14px;
 }
 
-.wrapper-policy {
+.policy {
   background-color: rgba(14, 34, 52, 1);
+  color: #fff;
+  margin-top: 2rem;
+  font-family: monospace;
+  white-space: pre;
+  padding: 1.5rem;
 }
 
 .policy-banner {
@@ -112,7 +117,7 @@ h2 {
   bottom: 0px;
   left: 8px;
   right: 0px;
-  top: 145px;
+  top: 160px;
   width: 17%;
   height: 28%;
 }

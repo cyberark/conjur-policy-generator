@@ -82,9 +82,7 @@ module Policy
   def render_download_button
     data_encoded = ::Base64.encode64 store.policy_text
     uri = "data:application/yaml;base64,#{data_encoded}"
-    div.input_group style: {padding: '1rem',
-                            'margin-top': '-0.5rem',
-                            background: 'white'} do
+    div.input_group do
       a href: uri,
         target: '_blank',
         download: 'policy.yml',
@@ -101,13 +99,7 @@ module Policy
       h4 do
         text props[:header]
       end if props[:header]
-      div style: {'font-family': 'monospace',
-                  'color': 'white',
-                  'white-space': 'pre',
-                  padding: '8px',
-                  'padding-bottom': '2.5rem',
-                  'border-bottom': '3px dashed white',
-                 } do
+      div.policy do
         text store.policy_text
       end
     end
