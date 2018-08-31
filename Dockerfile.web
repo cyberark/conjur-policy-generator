@@ -3,7 +3,7 @@ RUN apk add --update build-base libffi-dev && \
     mkdir ./web
 WORKDIR ./web
 
-COPY web/Gemfile web/Gemfile.lock .
+COPY web/Gemfile web/Gemfile.lock ./
 RUN gem install -g Gemfile
 
 COPY web .

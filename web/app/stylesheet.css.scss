@@ -1,0 +1,128 @@
+@import "bootstrap";
+
+a {
+  font-weight: 400;
+  font-family: 'open_sans_regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  list-styling: none;
+  color: white;
+  font-size: 15px;
+  padding: 20px;
+  letter-spacing: 0.5px;
+}
+
+a:hover {
+  font-weight: 400;
+  font-family: 'open_sans_regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  list-styling: none;
+  color: white;
+}
+
+h2 {
+  margin-bottom: 0;
+  margin-left: 10%;
+  padding: 10px;
+  color: white;
+  height: 55px;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  font-family: 'open_sans_regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.navbar {
+  padding: 0;
+  background-color: rgba(14, 34, 52, 1);
+  height: 77px;
+}
+
+.cyber_logo {
+  width: 205px;
+  margin: 30px;
+}
+
+.nav-item {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  border-radius: 5px;
+  font-family: 'open_sans_regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+.btn_default {
+  color: #444;
+  border-color: #ddd;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+
+.dropdown-item {
+  font-family: 'open_sans_regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+.wrapper-policy {
+  background-color: rgba(14, 34, 52, 1);
+}
+
+.policy-banner {
+  background-color: rgba(77, 132, 184, 1);
+  margin-bottom: 0;
+}
+
+.btn-secondary {
+  background-color: rgba(77, 132, 184, 1);
+  border: 0;
+  height: 47px;
+  border-radius: 5px;
+}
+
+.btn-secondary:hover {
+  background-color: #224A6F;
+}
+
+.policy-temp-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.input-group-text {
+  background-color: #0e2234;
+  color: white;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  font-family: 'open_sans_regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  border: 0;
+}
+
+.form-control {
+  font-size: 15px;
+}
+
+.policy-addition-sidebar {
+  position: fixed;
+  bottom: 0px;
+  left: 8px;
+  right: 0px;
+  top: 145px;
+  width: 17%;
+  height: 28%;
+}
+
+@media only screen and (max-width: 1700px) {
+  .policy-addition-sidebar {
+    position: relative;
+    top: 0px;
+    width: 100%;
+  }
+}
+ 
+    
