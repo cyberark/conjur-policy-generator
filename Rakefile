@@ -1,6 +1,8 @@
 task :tangle do
   mkdir_p 'src/ruby'
-  system %Q{docker run --interactive --tty --rm --volume $(pwd):/workdir mqsoh/knot *.md src/*.md}
+  file_list = Rake::FileList['src/ruby/*.rb']
+  rm_f file_list unless file_list.length == 0
+  system %Q{docker run -it --rm -v $(pwd):/workdir mqsoh/knot *.md src/*.md}
 end
 
 begin
