@@ -6,8 +6,8 @@ WORKDIR /generator
 COPY Gemfile ./
 RUN gem install -g Gemfile
 
-COPY src ./src
-COPY spec ./spec
+COPY src ./src/
+COPY spec ./spec/
 COPY Rakefile VERSION ./
 
 ENTRYPOINT [ "rake" ]

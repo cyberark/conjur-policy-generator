@@ -381,6 +381,7 @@ end
       body:
         - !layer
         - !host-factory
+          layer: !layer
     - !grant
       role: !group alfa/secrets-users
       member: !layer hosts
