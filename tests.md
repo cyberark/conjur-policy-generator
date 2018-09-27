@@ -118,6 +118,21 @@ describe SecretControl do
 end
 ```
 
+###### file:spec/authn_k8s_template_spec.rb
+```ruby
+require_relative '../src/ruby/generator'
+require_relative './policies'
+
+include RSpec
+include Conjur::PolicyGenerator::Template
+
+describe Kubernetes do
+  it 'generates a default policy' do
+    expect(described_class.new().toMAML).to eq(templateK8sDefault)
+  end
+end
+```
+
 ## Target Policies for Load Testing
 
 ###### file:spec/policies.rb
@@ -161,6 +176,12 @@ end
 def templateSecretControlWithHF
   <<~EOF
     <<Policy: template policy for secret control with host factory policy>>
+  EOF
+end
+
+def templateK8sDefault
+  <<~EOF
+    <<Policy: default template policy for authn-k8s>>
   EOF
 end
 ```
@@ -366,4 +387,106 @@ end
     - !grant
       role: !group bravo/secrets-users
       member: !layer hosts
+```
+
+###### Policy: default template policy for authn-k8s
+
+```
+---
+# Groups for separation of duties
+- !group cluster-admin
+- !group devops
+- !group secrets-admin
+
+- !policy
+  id: secrets
+  owner: !group secrets-admin
+  annotations:
+    description: grants secrets access to application layers
+  body:
+    - !variable db-password
+    - !permit
+      role: !layer /myapp
+      privileges: [ read, execute ]
+      resource: !variable db-password
+
+- !policy
+  id: myapp
+  owner: !group devops
+  annotations:
+    description: |
+      This policy connects authn identities to an application identity.
+      It defines a layer named for an application that contains the
+      whitelisted identities that can authenticate to the authn-k8s
+      endpoint. Any permissions granted to the application layer will
+      be inherited by the whitelisted authn identities, thereby
+      granting access to the authenticated identity.)
+  body:
+    - !layer
+    
+    # Add authn-k8s identities to application layer so its roles inherit
+    app's permissions
+    
+    - !grant
+      role: !layer
+      member: !layer /conjur-authn-k8s/authenticator/apps
+
+# This policy defines an authn-k8s endpoint, CA creds,
+# and a layer for whitelisted identities permitted to authenticate to it
+
+- !policy
+  id: conjur/authn-k8s/authenticator
+  owner: !group cluster-admin
+  annotations:
+    description: Namespace definitions for the Conjur cluster
+  body:
+    - !webservice
+      annotations:
+        description: authn service for the cluster
+    
+    - !policy
+      id: ca
+      body:
+        - !variable
+          id: cert
+          annotations:
+            description: CA cert for Kubernetes Pods
+        - !variable
+          id: key
+          annotations:
+            description: CA key for Kubernetes Pods
+    
+    # permit layer of authn ids for the authn service
+    - !permit
+      role: !layer /conjur/authn-k8s/authenticator/apps
+      privileges: [ read, authenticate ]
+      resource: !webservice
+    - !policy
+      id: apps
+      owner: !group devops
+      annotations:
+        description: Identities permitted to use authn-k8s
+      body:
+        - !layer
+          annotations:
+            description: Identities in this layer are permitted to use authn-k8s
+        - &hosts
+          - !host
+            id: myorg/*/*
+            annotations:
+              kubernetes/authentication-container-name: authenticator
+              openshift: true
+          - !host
+            id: myorg/service-account/myapp-api-sidecar
+            annotations:
+              kubernetes/authentication-container-name: authenticator
+              kubernetes: true
+          - !host
+            id: myorg/service-account/myapp-api-init
+            annotations:
+              kubernetes/authentication-container-name: authenticator
+              kubernetes: true
+        - !grant
+          role: !layer
+          member: *hosts
 ```

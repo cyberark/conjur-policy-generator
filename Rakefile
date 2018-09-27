@@ -48,6 +48,18 @@ task :control_secrets,
   puts secret_control.toMAML
 end
 
+task :k8s,
+     [:app_name, :app_namespace, :authenticator_id] do |t, args|
+  require_relative './src/ruby/generator'
+  app_name = args[:app_name]
+  app_namespace = args[:app_namespace]
+  authenticator_id = args[:authenticator_id]
+  kubernetes_generator = Conjur::PolicyGenerator::Template::Kubernetes.new app_name,
+                                                                           app_namespace,
+                                                                           authenticator_id
+  puts kubernetes_generator.toMAML
+end
+
 task :version do
   system 'echo Conjur Policy Generator $(cat VERSION)'
 end

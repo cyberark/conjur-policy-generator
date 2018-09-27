@@ -23,6 +23,15 @@ class Store
           secrets_per_group: [1, infinity]
         }
       },
+      k8s: {
+        generator: Conjur::PolicyGenerator::Template::Kubernetes,
+        name: 'Authn-Kubernetes',
+        defaults: {
+          app_name: 'myapp',
+          app_namespace: 'myorg',
+          authenticator_id: 'authenticator'
+        }
+      },
       humans: {
         generator: Conjur::PolicyGenerator::Humans,
         name: 'Humans & Groups',

@@ -4,6 +4,7 @@ class NavBar
   def change_generator_to new_generator
     lambda {
       store.change_generator new_generator
+      render!
     }
   end
 
