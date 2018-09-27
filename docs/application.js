@@ -26776,18 +26776,20 @@ if (key == null) key = nil;if (val == null) val = nil;
         };
       }, TMP_PolicyGenerator_layer_20.$$arity = -1);
       
-      Opal.defn(self, '$host_factory', TMP_PolicyGenerator_host_factory_21 = function $$host_factory(name) {
-        var self = this;
+      Opal.defn(self, '$host_factory', TMP_PolicyGenerator_host_factory_21 = function $$host_factory(layer, name) {
+        var self = this, result = nil;
 
         if (name == null) {
           name = nil;
         }
-        return "" + "!host-factory" + ((function() {if ($truthy(name['$nil?']()['$!']())) {
-          return $rb_plus(" ", name)
+        
+        result = "!host-factory";
+        if ($truthy(name['$nil?']())) {
           } else {
-          return nil
-        }; return nil; })())
-      }, TMP_PolicyGenerator_host_factory_21.$$arity = -1);
+          result = $rb_plus(result, $rb_plus($rb_plus("\n", self.$indent("id: ")), name))
+        };
+        return (result = $rb_plus(result, $rb_plus("\n", self.$indent("" + "layer: " + (layer)))));
+      }, TMP_PolicyGenerator_host_factory_21.$$arity = -2);
       
       Opal.defn(self, '$grant', TMP_PolicyGenerator_grant_23 = function $$grant(role, $a_rest) {
         var TMP_renderMembers_22, self = this, members, result = nil;
@@ -27025,7 +27027,7 @@ if (index == null) index = nil;
             Opal.def(self, '$render_hosts', TMP_render_hosts_47 = function $$render_hosts(groups) {
               var TMP_46, self = this;
 
-              return [self.$blank_line(), self.$comment("=== Layer for Automated Secret Access ==="), self.$policy("hosts", self.$layer(), self.$host_factory(), $hash2(["description"], {"description": "Layer & Host Factory for machines that can read secrets"})), $send(groups, 'map', [], (TMP_46 = function(group){var self = TMP_46.$$s || this;
+              return [self.$blank_line(), self.$comment("=== Layer for Automated Secret Access ==="), self.$policy("hosts", self.$layer(), self.$host_factory(self.$layer()), $hash2(["description"], {"description": "Layer & Host Factory for machines that can read secrets"})), $send(groups, 'map', [], (TMP_46 = function(group){var self = TMP_46.$$s || this;
 if (group == null) group = nil;
               return self.$grant(self.$group("" + (group) + "/secrets-users"), self.$layer("hosts"))}, TMP_46.$$s = self, TMP_46.$$arity = 1, TMP_46))].$flatten()
             }, TMP_render_hosts_47.$$arity = 1);
