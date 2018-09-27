@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -eu
+
 bin/build
 docker build -f Dockerfile.web -t conjur-policy-generator-web .
 docker run --rm \
