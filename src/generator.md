@@ -148,8 +148,10 @@ def layer name=nil, **annotations
   result += "\n" + indent(render_annotations annotations) unless annotations.empty?
 end
 
-def host_factory name=nil
-  "!host-factory#{' ' + name if not name.nil?}"
+def host_factory layer, name=nil
+  result = "!host-factory"
+  result += "\n" + indent('id: ') + name unless name.nil?
+  result += "\n" + indent("layer: #{layer}")
 end
 
 def grant role, *members
@@ -322,7 +324,7 @@ def toMAML
     [
       blank_line,
       comment('=== Layer for Automated Secret Access ==='),
-      policy('hosts', layer, host_factory,
+      policy('hosts', layer, host_factory(layer),
              description: 'Layer & Host Factory for machines that can read secrets'),
       groups.map { |group|
         grant(group("#{group}/secrets-users"),
