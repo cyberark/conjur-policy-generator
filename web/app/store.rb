@@ -17,6 +17,10 @@ class Store
           secret_groups: 1,
           secrets_per_group: 1,
           include_hostfactory: false
+        },
+        clamp: {
+          secret_groups: [1, infinity],
+          secrets_per_group: [1, infinity]
         }
       },
       humans: {
@@ -26,6 +30,11 @@ class Store
           users: 2,
           groups: 1,
           users_per_group: 1
+        },
+        clamp: {
+          users: [1, infinity],
+          groups: [0, infinity],
+          users_per_group: [0, infinity]
         }
       },
       secrets: {
@@ -34,6 +43,10 @@ class Store
         defaults: {
           secrets: 1,
           annotations_per_secret: 1
+        },
+        clamp: {
+          secrets: [1, infinity],
+          annotations_per_secret: [0, infinity]
         }
       },
     }
@@ -45,28 +58,37 @@ class Store
     @variables = supported_generators.dig(new_generator, :defaults).clone
   end
 
-  def generator
-    supported_generators.dig(@current_generator, :generator)
-  end
-
   def value variable
-    @variables[variable] = 0 if not @variables.include? variable
     @variables[variable]
   end
 
+  def clamp variable, value
+    bounds = supported_generators.dig(current_generator, :clamp, variable)
+    return value if bounds.nil?
+    value.clamp(*bounds)
+  end
+
   def increase variable
-    @variables[variable] = value(variable) + 1
+    set variable, value(variable) + 1
   end
 
   def decrease variable
-    @variables[variable] = value(variable) - 1
+    set variable, value(variable) - 1
   end
 
   def set variable, value
-    @variables[variable] = value
+    @variables[variable] = clamp(variable, value)
   end
 
   def policy_text
-    generator.new(*@variables.values).toMAML
+    supported_generators.dig(@current_generator, :generator)
+      .new(*@variables.values)
+      .toMAML
+  end
+
+  private
+
+  def infinity
+    Float::INFINITY
   end
 end
