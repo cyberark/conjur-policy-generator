@@ -26273,12 +26273,12 @@ Opal.modules["components/k8s_policy"] = function(Opal) {
 Opal.modules["components/navbar"] = function(Opal) {
   var self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $klass = Opal.klass, $send = Opal.send, $hash2 = Opal.hash2;
 
-  Opal.add_stubs(['$include', '$lambda', '$change_generator', '$store', '$render!', '$dig', '$supported_generators', '$form_inline', '$form', '$input_group', '$div', '$input_group_prepend', '$span', '$input_group_text', '$text', '$dropdown', '$dropdown_toggle', '$btn_outline_secondary', '$btn', '$button', '$name_for', '$current_generator', '$dropdown_menu', '$each', '$dropdown_item', '$a', '$change_generator_to', '$bg_light', '$navbar_light', '$navbar_expand_lg', '$navbar', '$nav', '$navbar_brand', '$navbar_collapse', '$collapse', '$mr_auto', '$navbar_nav', '$ul', '$nav_item', '$li', '$class_names', '$current_url?', '$router', '$nav_link', '$url_for', '$render_policy_dropdown']);
+  Opal.add_stubs(['$include', '$lambda', '$change_generator', '$store', '$render!', '$dig', '$supported_generators', '$form_inline', '$form', '$input_group', '$div', '$input_group_prepend', '$span', '$input_group_text', '$text', '$dropdown', '$dropdown_toggle', '$btn_outline_secondary', '$btn', '$button', '$name_for', '$current_generator', '$dropdown_menu', '$each', '$dropdown_item', '$a', '$change_generator_to', '$navbar', '$nav', '$navbar_banner', '$navbar_img', '$img', '$navbar_options', '$ul', '$nav_item', '$li', '$class_names', '$current_url?', '$router', '$nav_link', '$url_for', '$policy_banner', '$policy_title', '$navbar_brand', '$render_policy_dropdown']);
   return (function($base, $super, $parent_nesting) {
     function $NavBar(){};
     var self = $NavBar = $klass($base, $super, 'NavBar', $NavBar);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_NavBar_change_generator_to_2, TMP_NavBar_name_for_3, TMP_NavBar_render_policy_dropdown_13, TMP_NavBar_render_22;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_NavBar_change_generator_to_2, TMP_NavBar_name_for_3, TMP_NavBar_render_policy_dropdown_13, TMP_NavBar_render_24;
 
     
     self.$include(Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Inesita'), 'Component'));
@@ -26326,32 +26326,38 @@ if (name == null) name = nil;if (data == null) data = nil;
 
                 return self.$text(data.$dig("name"))}, TMP_12.$$s = self, TMP_12.$$arity = 0, TMP_12))}, TMP_11.$$s = self, TMP_11.$$arity = 2, TMP_11))}, TMP_10.$$s = self, TMP_10.$$arity = 0, TMP_10));}, TMP_8.$$s = self, TMP_8.$$arity = 0, TMP_8));}, TMP_5.$$s = self, TMP_5.$$arity = 0, TMP_5))}, TMP_4.$$s = self, TMP_4.$$arity = 0, TMP_4))
     }, TMP_NavBar_render_policy_dropdown_13.$$arity = 0);
-    return (Opal.defn(self, '$render', TMP_NavBar_render_22 = function $$render() {
-      var TMP_14, self = this;
-
-      return $send(self.$nav().$navbar().$navbar_expand_lg().$navbar_light(), 'bg_light', [], (TMP_14 = function(){var self = TMP_14.$$s || this, TMP_15, TMP_16;
+    return (Opal.defn(self, '$render', TMP_NavBar_render_24 = function $$render() {
+      var TMP_14, TMP_22, self = this;
 
       
-        $send(self.$span(), 'navbar_brand', [], (TMP_15 = function(){var self = TMP_15.$$s || this;
+      $send(self.$nav(), 'navbar', [], (TMP_14 = function(){var self = TMP_14.$$s || this, TMP_15;
 
-        return self.$text("Conjur Policy Generator")}, TMP_15.$$s = self, TMP_15.$$arity = 0, TMP_15));
-        $send(self.$div().$collapse(), 'navbar_collapse', [], (TMP_16 = function(){var self = TMP_16.$$s || this, TMP_17;
+      return $send(self.$div(), 'navbar_banner', [], (TMP_15 = function(){var self = TMP_15.$$s || this, TMP_16, TMP_17;
 
-        return $send(self.$ul().$nav().$navbar_nav(), 'mr_auto', [], (TMP_17 = function(){var self = TMP_17.$$s || this, TMP_18, TMP_20;
+        
+          $send(self.$div(), 'navbar_img', [], (TMP_16 = function(){var self = TMP_16.$$s || this;
+
+          return self.$img($hash2(["src", "class", "alt"], {"src": "/static/cyberark_conjur_logo_horiz_dark.svg", "class": "cyber_logo", "alt": "CyberArk Conjur Logo"}))}, TMP_16.$$s = self, TMP_16.$$arity = 0, TMP_16));
+          return $send(self.$ul(), 'navbar_options', [], (TMP_17 = function(){var self = TMP_17.$$s || this, TMP_18, TMP_20;
 
           
-            $send(self.$li(), 'nav_item', [$hash2(["class"], {"class": self.$class_names($hash2(["active"], {"active": self.$router()['$current_url?']("home")}))})], (TMP_18 = function(){var self = TMP_18.$$s || this, TMP_19;
+            $send(self.$li(), 'nav_item', [$hash2(["class"], {"class": self.$class_names($hash2(["active"], {"active": self.$router()['$current_url?']("about")}))})], (TMP_18 = function(){var self = TMP_18.$$s || this, TMP_19;
 
-            return $send(self.$a(), 'nav_link', [$hash2(["href"], {"href": self.$router().$url_for("home")})], (TMP_19 = function(){var self = TMP_19.$$s || this;
+            return $send(self.$a(), 'nav_link', [$hash2(["href"], {"href": self.$router().$url_for("about")})], (TMP_19 = function(){var self = TMP_19.$$s || this;
 
-              return self.$text("Home")}, TMP_19.$$s = self, TMP_19.$$arity = 0, TMP_19))}, TMP_18.$$s = self, TMP_18.$$arity = 0, TMP_18));
+              return self.$text("About")}, TMP_19.$$s = self, TMP_19.$$arity = 0, TMP_19))}, TMP_18.$$s = self, TMP_18.$$arity = 0, TMP_18));
             return $send(self.$li(), 'nav_item', [$hash2(["class"], {"class": self.$class_names($hash2(["active"], {"active": self.$router()['$current_url?']("about")}))})], (TMP_20 = function(){var self = TMP_20.$$s || this, TMP_21;
 
             return $send(self.$a(), 'nav_link', [$hash2(["href"], {"href": self.$router().$url_for("about")})], (TMP_21 = function(){var self = TMP_21.$$s || this;
 
-              return self.$text("About")}, TMP_21.$$s = self, TMP_21.$$arity = 0, TMP_21))}, TMP_20.$$s = self, TMP_20.$$arity = 0, TMP_20));}, TMP_17.$$s = self, TMP_17.$$arity = 0, TMP_17))}, TMP_16.$$s = self, TMP_16.$$arity = 0, TMP_16));
-        return self.$render_policy_dropdown();}, TMP_14.$$s = self, TMP_14.$$arity = 0, TMP_14))
-    }, TMP_NavBar_render_22.$$arity = 0), nil) && 'render';
+              return self.$text("Policy Generator")}, TMP_21.$$s = self, TMP_21.$$arity = 0, TMP_21))}, TMP_20.$$s = self, TMP_20.$$arity = 0, TMP_20));}, TMP_17.$$s = self, TMP_17.$$arity = 0, TMP_17));}, TMP_15.$$s = self, TMP_15.$$arity = 0, TMP_15))}, TMP_14.$$s = self, TMP_14.$$arity = 0, TMP_14));
+      $send(self.$div(), 'policy_banner', [], (TMP_22 = function(){var self = TMP_22.$$s || this, TMP_23;
+
+      return $send(self.$span().$navbar_brand().$policy_banner(), 'policy_title', [], (TMP_23 = function(){var self = TMP_23.$$s || this;
+
+        return self.$text("Policy Generator")}, TMP_23.$$s = self, TMP_23.$$arity = 0, TMP_23))}, TMP_22.$$s = self, TMP_22.$$arity = 0, TMP_22));
+      return self.$render_policy_dropdown();
+    }, TMP_NavBar_render_24.$$arity = 0), nil) && 'render';
   })($nesting[0], null, $nesting)
 };
 /* Generated by Opal 0.11.1 */
@@ -27084,7 +27090,7 @@ if (name == null) name = nil;
 Opal.modules["application"] = function(Opal) {
   var TMP_3, self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $klass = Opal.klass, $send = Opal.send;
 
-  Opal.add_stubs(['$require', '$require_tree', '$include', '$inject', '$container', '$div', '$component', '$router', '$ready?', '$mount_to', '$body']);
+  Opal.add_stubs(['$require', '$require_tree', '$include', '$inject', '$component', '$container', '$div', '$router', '$ready?', '$mount_to', '$body']);
   
   self.$require("inesita");
   self.$require("inesita-router");
@@ -27106,11 +27112,11 @@ Opal.modules["application"] = function(Opal) {
     return (Opal.defn(self, '$render', TMP_Application_render_2 = function $$render() {
       var TMP_1, self = this;
 
+      
+      self.$component(Opal.const_get_relative($nesting, 'NavBar'));
       return $send(self.$div(), 'container', [], (TMP_1 = function(){var self = TMP_1.$$s || this;
 
-      
-        self.$component(Opal.const_get_relative($nesting, 'NavBar'));
-        return self.$component(self.$router());}, TMP_1.$$s = self, TMP_1.$$arity = 0, TMP_1))
+      return self.$component(self.$router())}, TMP_1.$$s = self, TMP_1.$$arity = 0, TMP_1));
     }, TMP_Application_render_2.$$arity = 0), nil) && 'render';
   })($nesting[0], null, $nesting);
   return $send(Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Inesita'), 'Browser'), 'ready?', [], (TMP_3 = function(){var self = TMP_3.$$s || this;

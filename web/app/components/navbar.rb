@@ -14,10 +14,10 @@ class NavBar
 
   def render_policy_dropdown
     form.form_inline do
-      div.input_group do
+      div.input_group.template_wrapper do
         span.input_group_prepend do
           span.input_group_text do
-            text 'Policy template:'
+            text 'Policy Template:'
           end
         end
         div.dropdown do
@@ -31,7 +31,7 @@ class NavBar
                                haspopup: 'true',
                                expanded: 'false'
                              } do
-            text name_for store.current_generator
+            a.dropdown_option name_for store.current_generator
           end
           div.dropdown_menu aria_labeledby: 'dropdownMenuButton' do
             store.supported_generators.each { |name, data|
@@ -46,25 +46,31 @@ class NavBar
   end
 
   def render
-    nav.navbar.navbar_expand_lg.navbar_light.bg_light do
-      span.navbar_brand do
-        text 'Conjur Policy Generator'
-      end
-      div.collapse.navbar_collapse do
-        ul.nav.navbar_nav.mr_auto do
-          li.nav_item class: class_names(active: router.current_url?(:home)) do
-            a.nav_link href: router.url_for(:home) do
-              text 'Home'
+    nav.navbar do
+      div.navbar_banner do
+        div.navbar_img do
+          img src: '/static/cyberark_conjur_logo_horiz_dark.svg', class: 'cyber_logo', alt: 'CyberArk Conjur Logo'
+        end
+        ul.navbar_options do
+          li.nav_item class: class_names(active: router.current_url?(:about)) do
+            a.nav_link.nav_link_primary href: router.url_for(:about) do
+              text 'About'
             end
           end
           li.nav_item class: class_names(active: router.current_url?(:about)) do
-            a.nav_link href: router.url_for(:about) do
-              text 'About'
+            a.nav_link.nav_link_secondary href: router.url_for(:home) do
+              text 'Policy Generator'
             end
           end
         end
       end
-      render_policy_dropdown
+
     end
+    div.policy_banner do
+      span.navbar_brand.policy_banner.policy_title do
+        text 'Policy Generator'
+      end
+    end
+    render_policy_dropdown
   end
 end
