@@ -26032,7 +26032,7 @@ Opal.modules["components/about"] = function(Opal) {
 Opal.modules["components/generic/policy"] = function(Opal) {
   var self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $module = Opal.module, $send = Opal.send, $hash2 = Opal.hash2, $truthy = Opal.truthy;
 
-  Opal.add_stubs(['$lambda', '$increase', '$store', '$render!', '$decrease', '$set', '$checked', '$target', '$value', '$mb_2', '$input_group', '$numeric_control', '$div', '$input_group_prepend', '$input_group_text', '$label', '$text', '$call', '$generic_control', '$form_control', '$input', '$update', '$btn_outline_secondary', '$btn', '$button', '$dec', '$text_center', '$input_group_append', '$inc', '$toggle', '$encode64', '$policy_text', '$a', '$input_group_btn', '$span', '$btn_default', '$bg_light', '$[]', '$props', '$h4', '$render_download_button', '$container', '$footer']);
+  Opal.add_stubs(['$lambda', '$increase', '$store', '$render!', '$decrease', '$set', '$checked', '$target', '$value', '$input_group', '$numeric_control', '$div', '$input_group_prepend', '$input_group_text', '$label', '$text', '$call', '$generic_control', '$form_control', '$input', '$update', '$btn_outline_secondary', '$btn', '$button', '$dec', '$text_center', '$input_group_append', '$inc', '$toggle', '$encode64', '$policy_text', '$a', '$input_group_btn', '$span', '$btn_prim', '$btn_default', '$box', '$policy_config_display', '$[]', '$props', '$h4', '$policy_config_list']);
   return (function($base, $parent_nesting) {
     var $Policy, self = $Policy = $module($base, 'Policy');
 
@@ -26089,7 +26089,7 @@ if (e == null) e = nil;
       return nil}, TMP_13.$$s = self, TMP_13.$$arity = 0, TMP_13));
       }
       if ($iter) TMP_Policy_generic_control_9.$$p = null;
-      return $send(self.$div().$numeric_control().$input_group(), 'mb_2', [], (TMP_10 = function(){var self = TMP_10.$$s || this, TMP_11;
+      return $send(self.$div().$numeric_control(), 'input_group', [], (TMP_10 = function(){var self = TMP_10.$$s || this, TMP_11;
 
       
         $send(self.$div(), 'input_group_prepend', [], (TMP_11 = function(){var self = TMP_11.$$s || this, TMP_12;
@@ -26111,7 +26111,7 @@ if (e == null) e = nil;
 
       return $send(self, 'generic_control', [description], (TMP_14 = function(){var self = TMP_14.$$s || this;
 
-      return self.$input().$form_control($hash2(["type", "value", "oninput", "style"], {"type": "text", "value": self.$store().$value(variable), "oninput": self.$update(variable), "style": $hash2(["max-width"], {"max-width": "20ex"})}))}, TMP_14.$$s = self, TMP_14.$$arity = 0, TMP_14))
+      return self.$input().$form_control($hash2(["type", "value", "oninput", "style"], {"type": "text", "value": self.$store().$value(variable), "oninput": self.$update(variable), "style": $hash2(["border-color", "border-radius"], {"border-color": "white", "border-radius": "4px"})}))}, TMP_14.$$s = self, TMP_14.$$arity = 0, TMP_14))
     }, TMP_Policy_render_text_control_15.$$arity = 2);
     
     Opal.defn(self, '$render_numeric_control', TMP_Policy_render_numeric_control_21 = function $$render_numeric_control(variable, description) {
@@ -26119,15 +26119,15 @@ if (e == null) e = nil;
 
       return $send(self, 'generic_control', [description, $send(self, 'lambda', [], (TMP_16 = function(){var self = TMP_16.$$s || this, TMP_17;
 
-      return $send(self.$button().$btn(), 'btn_outline_secondary', [$hash2(["style", "onclick"], {"style": $hash2(["background"], {"background": "white"}), "onclick": self.$dec(variable)})], (TMP_17 = function(){var self = TMP_17.$$s || this;
+      return $send(self.$button().$btn(), 'btn_outline_secondary', [$hash2(["style", "onclick"], {"style": $hash2(["background", "color", "font-weight", "border-color", "border-radius", "height", "width"], {"background": "#35C5C1", "color": "white", "font-weight": "800", "border-color": "#35C5C1", "border-radius": "50%", "height": "40px", "width": "40px"}), "onclick": self.$dec(variable)})], (TMP_17 = function(){var self = TMP_17.$$s || this;
 
         return self.$text("-")}, TMP_17.$$s = self, TMP_17.$$arity = 0, TMP_17))}, TMP_16.$$s = self, TMP_16.$$arity = 0, TMP_16))], (TMP_18 = function(){var self = TMP_18.$$s || this, TMP_19;
 
       
-        self.$input().$form_control().$text_center($hash2(["type", "value", "disabled", "style"], {"type": "text", "value": self.$store().$value(variable), "disabled": true, "style": $hash2(["max-width"], {"max-width": "3em"})}));
+        self.$input().$form_control().$text_center($hash2(["type", "value", "disabled", "style"], {"type": "text", "value": self.$store().$value(variable), "disabled": true, "style": $hash2(["background", "border-color", "border-radius"], {"background": "white", "border-color": "white", "border-radius": "4px"})}));
         return $send(self.$div(), 'input_group_append', [], (TMP_19 = function(){var self = TMP_19.$$s || this, TMP_20;
 
-        return $send(self.$button().$btn(), 'btn_outline_secondary', [$hash2(["style", "onclick"], {"style": $hash2(["background"], {"background": "white"}), "onclick": self.$inc(variable)})], (TMP_20 = function(){var self = TMP_20.$$s || this;
+        return $send(self.$button().$btn(), 'btn_outline_secondary', [$hash2(["style", "onclick"], {"style": $hash2(["background", "color", "font-weight", "border-color", "border-radius", "height", "width"], {"background": "#35C5C1", "color": "white", "font-weight": "800", "border-color": "#35C5C1", "border-radius": "50%", "height": "40px", "width": "40px"}), "onclick": self.$inc(variable)})], (TMP_20 = function(){var self = TMP_20.$$s || this;
 
           return self.$text("+")}, TMP_20.$$s = self, TMP_20.$$arity = 0, TMP_20))}, TMP_19.$$s = self, TMP_19.$$arity = 0, TMP_19));}, TMP_18.$$s = self, TMP_18.$$arity = 0, TMP_18))
     }, TMP_Policy_render_numeric_control_21.$$arity = 2);
@@ -26148,43 +26148,37 @@ if (e == null) e = nil;
       
       data_encoded = Opal.const_get_qualified('::', 'Base64').$encode64(self.$store().$policy_text());
       uri = "" + "data:application/yaml;base64," + (data_encoded);
-      return $send(self.$div(), 'input_group', [$hash2(["style"], {"style": $hash2(["padding", "margin-top", "background"], {"padding": "1rem", "margin-top": "-0.5rem", "background": "white"})})], (TMP_25 = function(){var self = TMP_25.$$s || this, TMP_26;
+      return $send(self.$div(), 'input_group', [$hash2(["style"], {"style": $hash2(["padding", "margin-top"], {"padding": "30px 10px 10px 0px", "margin-top": "-0.5rem"})})], (TMP_25 = function(){var self = TMP_25.$$s || this, TMP_26;
 
-      return $send(self, 'a', [$hash2(["href", "target", "download", "style"], {"href": uri, "target": "_blank", "download": "policy.yml", "style": $hash2(["border", "border-radius"], {"border": "1px solid #d4d4d4", "border-radius": "5px"})})], (TMP_26 = function(){var self = TMP_26.$$s || this, TMP_27;
+      return $send(self, 'a', [$hash2(["href", "target", "download", "style"], {"href": uri, "target": "_blank", "download": "policy.yml", "style": $hash2(["border", "border-radius", "background"], {"border": "1px solid #4D84B8", "border-radius": "5px", "background": "#4D84B8"})})], (TMP_26 = function(){var self = TMP_26.$$s || this, TMP_27;
 
         return $send(self.$span(), 'input_group_btn', [], (TMP_27 = function(){var self = TMP_27.$$s || this;
 
-          return self.$button().$btn().$btn_default("Download Policy YAML")}, TMP_27.$$s = self, TMP_27.$$arity = 0, TMP_27))}, TMP_26.$$s = self, TMP_26.$$arity = 0, TMP_26))}, TMP_25.$$s = self, TMP_25.$$arity = 0, TMP_25));
+          return self.$button().$btn().$btn_default().$btn_prim("Download Policy")}, TMP_27.$$s = self, TMP_27.$$arity = 0, TMP_27))}, TMP_26.$$s = self, TMP_26.$$arity = 0, TMP_26))}, TMP_25.$$s = self, TMP_25.$$arity = 0, TMP_25));
     }, TMP_Policy_render_download_button_28.$$arity = 0);
     
     Opal.defn(self, '$render_policy', TMP_Policy_render_policy_32 = function $$render_policy() {
       var TMP_29, self = this;
 
-      
-      $send(self.$div(), 'bg_light', [], (TMP_29 = function(){var self = TMP_29.$$s || this, TMP_30, TMP_31;
+      return $send(self.$div().$policy_config_display(), 'box', [], (TMP_29 = function(){var self = TMP_29.$$s || this, TMP_30, TMP_31;
 
       
         if ($truthy(self.$props()['$[]']("header"))) {
           $send(self, 'h4', [], (TMP_30 = function(){var self = TMP_30.$$s || this;
 
           return self.$text(self.$props()['$[]']("header"))}, TMP_30.$$s = self, TMP_30.$$arity = 0, TMP_30))};
-        return $send(self, 'div', [$hash2(["style"], {"style": $hash2(["font-family", "white-space", "padding", "padding-bottom", "border-bottom", "margin"], {"font-family": "monospace", "white-space": "pre", "padding": "8px", "padding-bottom": "2.5rem", "border-bottom": "3px dashed white", "margin": "8px"})})], (TMP_31 = function(){var self = TMP_31.$$s || this;
+        return $send(self, 'div', [$hash2(["style"], {"style": $hash2(["font-family", "white-space", "background", "color", "padding", "padding-bottom"], {"font-family": "monospace", "white-space": "pre", "background": "#0E2234", "color": "white", "padding": "30px", "padding-bottom": "2.5rem"})})], (TMP_31 = function(){var self = TMP_31.$$s || this;
 
-        return self.$text(self.$store().$policy_text())}, TMP_31.$$s = self, TMP_31.$$arity = 0, TMP_31));}, TMP_29.$$s = self, TMP_29.$$arity = 0, TMP_29));
-      return self.$render_download_button();
+        return self.$text(self.$store().$policy_text())}, TMP_31.$$s = self, TMP_31.$$arity = 0, TMP_31));}, TMP_29.$$s = self, TMP_29.$$arity = 0, TMP_29))
     }, TMP_Policy_render_policy_32.$$arity = 0);
     
     Opal.defn(self, '$render_footer', TMP_Policy_render_footer_33 = function $$render_footer() {
-      var TMP_34, TMP_35, self = this, $iter = TMP_Policy_render_footer_33.$$p, block = $iter || nil;
+      var TMP_34, self = this, $iter = TMP_Policy_render_footer_33.$$p, block = $iter || nil;
 
       if ($iter) TMP_Policy_render_footer_33.$$p = null;
-      
-      $send(self.$div().$footer(), 'container', [$hash2(["style"], {"style": $hash2(["position", "bottom", "left", "right"], {"position": "fixed", "bottom": "0px", "left": "0px", "right": "0px"})})], (TMP_34 = function(){var self = TMP_34.$$s || this;
+      return $send(self.$div().$policy_config_list(), 'box', [], (TMP_34 = function(){var self = TMP_34.$$s || this;
 
-      return Opal.yieldX(block, []);}, TMP_34.$$s = self, TMP_34.$$arity = 0, TMP_34));
-      return $send(self.$div(), 'container', [$hash2(["style"], {"style": $hash2(["visibility"], {"visibility": "hidden"})})], (TMP_35 = function(){var self = TMP_35.$$s || this;
-
-      return Opal.yieldX(block, []);}, TMP_35.$$s = self, TMP_35.$$arity = 0, TMP_35));
+      return Opal.yieldX(block, []);}, TMP_34.$$s = self, TMP_34.$$arity = 0, TMP_34))
     }, TMP_Policy_render_footer_33.$$arity = 0);
   })($nesting[0], $nesting)
 };
@@ -26217,63 +26211,71 @@ Opal.modules["components/home"] = function(Opal) {
 Opal.modules["components/humans_policy"] = function(Opal) {
   var self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $klass = Opal.klass, $send = Opal.send;
 
-  Opal.add_stubs(['$include', '$render_policy', '$render_footer', '$render_numeric_control']);
+  Opal.add_stubs(['$include', '$wrapper', '$div', '$render_footer', '$control_wrapper', '$render_numeric_control', '$render_policy']);
   return (function($base, $super, $parent_nesting) {
     function $HumansPolicy(){};
     var self = $HumansPolicy = $klass($base, $super, 'HumansPolicy', $HumansPolicy);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_HumansPolicy_render_2;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_HumansPolicy_render_4;
 
     
     self.$include(Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Inesita'), 'Component'));
     self.$include(Opal.const_get_relative($nesting, 'Policy'));
-    return (Opal.defn(self, '$render', TMP_HumansPolicy_render_2 = function $$render() {
+    return (Opal.defn(self, '$render', TMP_HumansPolicy_render_4 = function $$render() {
       var TMP_1, self = this;
 
-      
-      self.$render_policy();
-      return $send(self, 'render_footer', [], (TMP_1 = function(){var self = TMP_1.$$s || this;
+      return $send(self.$div(), 'wrapper', [], (TMP_1 = function(){var self = TMP_1.$$s || this, TMP_2;
 
       
-        self.$render_numeric_control("users", "Number of users:");
-        self.$render_numeric_control("groups", "Number of groups:");
-        return self.$render_numeric_control("users_per_group", "Users per group:");}, TMP_1.$$s = self, TMP_1.$$arity = 0, TMP_1));
-    }, TMP_HumansPolicy_render_2.$$arity = 0), nil) && 'render';
+        $send(self, 'render_footer', [], (TMP_2 = function(){var self = TMP_2.$$s || this, TMP_3;
+
+        return $send(self.$div(), 'control_wrapper', [], (TMP_3 = function(){var self = TMP_3.$$s || this;
+
+          
+            self.$render_numeric_control("users", "Number of Users:");
+            self.$render_numeric_control("groups", "Number of Groups:");
+            return self.$render_numeric_control("users_per_group", "Users per Group:");}, TMP_3.$$s = self, TMP_3.$$arity = 0, TMP_3))}, TMP_2.$$s = self, TMP_2.$$arity = 0, TMP_2));
+        return self.$render_policy();}, TMP_1.$$s = self, TMP_1.$$arity = 0, TMP_1))
+    }, TMP_HumansPolicy_render_4.$$arity = 0), nil) && 'render';
   })($nesting[0], null, $nesting)
 };
 /* Generated by Opal 0.11.1 */
 Opal.modules["components/k8s_policy"] = function(Opal) {
   var self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $klass = Opal.klass, $send = Opal.send;
 
-  Opal.add_stubs(['$include', '$render_policy', '$render_footer', '$render_text_control']);
+  Opal.add_stubs(['$include', '$wrapper', '$div', '$render_footer', '$control_wrapper', '$render_text_control', '$render_policy']);
   return (function($base, $super, $parent_nesting) {
     function $KubernetesPolicy(){};
     var self = $KubernetesPolicy = $klass($base, $super, 'KubernetesPolicy', $KubernetesPolicy);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_KubernetesPolicy_render_2;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_KubernetesPolicy_render_4;
 
     
     self.$include(Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Inesita'), 'Component'));
     self.$include(Opal.const_get_relative($nesting, 'Policy'));
-    return (Opal.defn(self, '$render', TMP_KubernetesPolicy_render_2 = function $$render() {
+    return (Opal.defn(self, '$render', TMP_KubernetesPolicy_render_4 = function $$render() {
       var TMP_1, self = this;
 
-      
-      self.$render_policy();
-      return $send(self, 'render_footer', [], (TMP_1 = function(){var self = TMP_1.$$s || this;
+      return $send(self.$div(), 'wrapper', [], (TMP_1 = function(){var self = TMP_1.$$s || this, TMP_2;
 
       
-        self.$render_text_control("app_name", "App name:");
-        self.$render_text_control("app_namespace", "App namespace:");
-        return self.$render_text_control("authenticator_id", "Authenticator ID:");}, TMP_1.$$s = self, TMP_1.$$arity = 0, TMP_1));
-    }, TMP_KubernetesPolicy_render_2.$$arity = 0), nil) && 'render';
+        $send(self, 'render_footer', [], (TMP_2 = function(){var self = TMP_2.$$s || this, TMP_3;
+
+        return $send(self.$div(), 'control_wrapper', [], (TMP_3 = function(){var self = TMP_3.$$s || this;
+
+          
+            self.$render_text_control("app_name", "App Name:");
+            self.$render_text_control("app_namespace", "App Namespace:");
+            return self.$render_text_control("authenticator_id", "Authenticator ID:");}, TMP_3.$$s = self, TMP_3.$$arity = 0, TMP_3))}, TMP_2.$$s = self, TMP_2.$$arity = 0, TMP_2));
+        return self.$render_policy();}, TMP_1.$$s = self, TMP_1.$$arity = 0, TMP_1))
+    }, TMP_KubernetesPolicy_render_4.$$arity = 0), nil) && 'render';
   })($nesting[0], null, $nesting)
 };
 /* Generated by Opal 0.11.1 */
 Opal.modules["components/navbar"] = function(Opal) {
   var self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $klass = Opal.klass, $send = Opal.send, $hash2 = Opal.hash2;
 
-  Opal.add_stubs(['$include', '$lambda', '$change_generator', '$store', '$render!', '$dig', '$supported_generators', '$form_inline', '$form', '$input_group', '$div', '$input_group_prepend', '$span', '$input_group_text', '$text', '$dropdown', '$dropdown_toggle', '$btn_outline_secondary', '$btn', '$button', '$name_for', '$current_generator', '$dropdown_menu', '$each', '$dropdown_item', '$a', '$change_generator_to', '$navbar', '$nav', '$navbar_banner', '$navbar_img', '$img', '$navbar_options', '$ul', '$nav_item', '$li', '$class_names', '$current_url?', '$router', '$nav_link', '$url_for', '$policy_banner', '$policy_title', '$navbar_brand', '$render_policy_dropdown']);
+  Opal.add_stubs(['$include', '$lambda', '$change_generator', '$store', '$render!', '$dig', '$supported_generators', '$form_inline', '$form', '$template_wrapper', '$input_group', '$div', '$input_group_prepend', '$span', '$input_group_text', '$text', '$dropdown', '$dropdown_toggle', '$btn_outline_secondary', '$btn', '$button', '$dropdown_option', '$a', '$name_for', '$current_generator', '$dropdown_menu', '$each', '$dropdown_item', '$change_generator_to', '$navbar', '$nav', '$navbar_banner', '$navbar_img', '$img', '$navbar_options', '$ul', '$nav_item', '$li', '$class_names', '$current_url?', '$router', '$nav_link_primary', '$nav_link', '$url_for', '$nav_link_secondary', '$policy_banner', '$policy_title', '$navbar_brand', '$render_policy_dropdown']);
   return (function($base, $super, $parent_nesting) {
     function $NavBar(){};
     var self = $NavBar = $klass($base, $super, 'NavBar', $NavBar);
@@ -26304,20 +26306,20 @@ Opal.modules["components/navbar"] = function(Opal) {
 
       return $send(self.$form(), 'form_inline', [], (TMP_4 = function(){var self = TMP_4.$$s || this, TMP_5;
 
-      return $send(self.$div(), 'input_group', [], (TMP_5 = function(){var self = TMP_5.$$s || this, TMP_6, TMP_8;
+      return $send(self.$div().$input_group(), 'template_wrapper', [], (TMP_5 = function(){var self = TMP_5.$$s || this, TMP_6, TMP_8;
 
         
           $send(self.$span(), 'input_group_prepend', [], (TMP_6 = function(){var self = TMP_6.$$s || this, TMP_7;
 
           return $send(self.$span(), 'input_group_text', [], (TMP_7 = function(){var self = TMP_7.$$s || this;
 
-            return self.$text("Policy template:")}, TMP_7.$$s = self, TMP_7.$$arity = 0, TMP_7))}, TMP_6.$$s = self, TMP_6.$$arity = 0, TMP_6));
+            return self.$text("Policy Template:")}, TMP_7.$$s = self, TMP_7.$$arity = 0, TMP_7))}, TMP_6.$$s = self, TMP_6.$$arity = 0, TMP_6));
           return $send(self.$div(), 'dropdown', [], (TMP_8 = function(){var self = TMP_8.$$s || this, TMP_9, TMP_10;
 
           
             $send(self.$button().$btn().$btn_outline_secondary(), 'dropdown_toggle', [$hash2(["type", "id", "data", "aria"], {"type": "button", "id": "dropdownMenuButton", "data": $hash2(["toggle"], {"toggle": "dropdown"}), "aria": $hash2(["haspopup", "expanded"], {"haspopup": "true", "expanded": "false"})})], (TMP_9 = function(){var self = TMP_9.$$s || this;
 
-            return self.$text(self.$name_for(self.$store().$current_generator()))}, TMP_9.$$s = self, TMP_9.$$arity = 0, TMP_9));
+            return self.$a().$dropdown_option(self.$name_for(self.$store().$current_generator()))}, TMP_9.$$s = self, TMP_9.$$arity = 0, TMP_9));
             return $send(self.$div(), 'dropdown_menu', [$hash2(["aria_labeledby"], {"aria_labeledby": "dropdownMenuButton"})], (TMP_10 = function(){var self = TMP_10.$$s || this, TMP_11;
 
             return $send(self.$store().$supported_generators(), 'each', [], (TMP_11 = function(name, data){var self = TMP_11.$$s || this, TMP_12;
@@ -26343,12 +26345,12 @@ if (name == null) name = nil;if (data == null) data = nil;
           
             $send(self.$li(), 'nav_item', [$hash2(["class"], {"class": self.$class_names($hash2(["active"], {"active": self.$router()['$current_url?']("about")}))})], (TMP_18 = function(){var self = TMP_18.$$s || this, TMP_19;
 
-            return $send(self.$a(), 'nav_link', [$hash2(["href"], {"href": self.$router().$url_for("about")})], (TMP_19 = function(){var self = TMP_19.$$s || this;
+            return $send(self.$a().$nav_link(), 'nav_link_primary', [$hash2(["href"], {"href": self.$router().$url_for("about")})], (TMP_19 = function(){var self = TMP_19.$$s || this;
 
               return self.$text("About")}, TMP_19.$$s = self, TMP_19.$$arity = 0, TMP_19))}, TMP_18.$$s = self, TMP_18.$$arity = 0, TMP_18));
             return $send(self.$li(), 'nav_item', [$hash2(["class"], {"class": self.$class_names($hash2(["active"], {"active": self.$router()['$current_url?']("about")}))})], (TMP_20 = function(){var self = TMP_20.$$s || this, TMP_21;
 
-            return $send(self.$a(), 'nav_link', [$hash2(["href"], {"href": self.$router().$url_for("about")})], (TMP_21 = function(){var self = TMP_21.$$s || this;
+            return $send(self.$a().$nav_link(), 'nav_link_secondary', [$hash2(["href"], {"href": self.$router().$url_for("home")})], (TMP_21 = function(){var self = TMP_21.$$s || this;
 
               return self.$text("Policy Generator")}, TMP_21.$$s = self, TMP_21.$$arity = 0, TMP_21))}, TMP_20.$$s = self, TMP_20.$$arity = 0, TMP_20));}, TMP_17.$$s = self, TMP_17.$$arity = 0, TMP_17));}, TMP_15.$$s = self, TMP_15.$$arity = 0, TMP_15))}, TMP_14.$$s = self, TMP_14.$$arity = 0, TMP_14));
       $send(self.$div(), 'policy_banner', [], (TMP_22 = function(){var self = TMP_22.$$s || this, TMP_23;
@@ -26364,56 +26366,66 @@ if (name == null) name = nil;if (data == null) data = nil;
 Opal.modules["components/secret_control_policy"] = function(Opal) {
   var self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $klass = Opal.klass, $send = Opal.send;
 
-  Opal.add_stubs(['$include', '$render_policy', '$render_footer', '$render_text_control', '$render_numeric_control', '$render_boolean_control']);
+  Opal.add_stubs(['$include', '$wrapper', '$div', '$render_footer', '$control_wrapper', '$render_text_control', '$render_numeric_control', '$render_boolean_control', '$render_download_button', '$render_policy']);
   return (function($base, $super, $parent_nesting) {
     function $SecretControlPolicy(){};
     var self = $SecretControlPolicy = $klass($base, $super, 'SecretControlPolicy', $SecretControlPolicy);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_SecretControlPolicy_render_2;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_SecretControlPolicy_render_4;
 
     
     self.$include(Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Inesita'), 'Component'));
     self.$include(Opal.const_get_relative($nesting, 'Policy'));
-    return (Opal.defn(self, '$render', TMP_SecretControlPolicy_render_2 = function $$render() {
+    return (Opal.defn(self, '$render', TMP_SecretControlPolicy_render_4 = function $$render() {
       var TMP_1, self = this;
 
-      
-      self.$render_policy();
-      return $send(self, 'render_footer', [], (TMP_1 = function(){var self = TMP_1.$$s || this;
+      return $send(self.$div(), 'wrapper', [], (TMP_1 = function(){var self = TMP_1.$$s || this, TMP_2;
 
       
-        self.$render_text_control("application_name", "App name:");
-        self.$render_numeric_control("secret_groups", "# of secret groups:");
-        self.$render_numeric_control("secrets_per_group", "Secrets per group:");
-        return self.$render_boolean_control("include_hostfactory", "Include hostfactory?");}, TMP_1.$$s = self, TMP_1.$$arity = 0, TMP_1));
-    }, TMP_SecretControlPolicy_render_2.$$arity = 0), nil) && 'render';
+        $send(self, 'render_footer', [], (TMP_2 = function(){var self = TMP_2.$$s || this, TMP_3;
+
+        
+          $send(self.$div(), 'control_wrapper', [], (TMP_3 = function(){var self = TMP_3.$$s || this;
+
+          
+            self.$render_text_control("application_name", "App Name:");
+            self.$render_numeric_control("secret_groups", "Number of Secret Groups:");
+            self.$render_numeric_control("secrets_per_group", "Number of Secrets per Group:");
+            return self.$render_boolean_control("include_hostfactory", "Include HostFactory?");}, TMP_3.$$s = self, TMP_3.$$arity = 0, TMP_3));
+          return self.$render_download_button();}, TMP_2.$$s = self, TMP_2.$$arity = 0, TMP_2));
+        return self.$render_policy();}, TMP_1.$$s = self, TMP_1.$$arity = 0, TMP_1))
+    }, TMP_SecretControlPolicy_render_4.$$arity = 0), nil) && 'render';
   })($nesting[0], null, $nesting)
 };
 /* Generated by Opal 0.11.1 */
 Opal.modules["components/secrets_policy"] = function(Opal) {
   var self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $klass = Opal.klass, $send = Opal.send;
 
-  Opal.add_stubs(['$include', '$render_policy', '$render_footer', '$render_numeric_control']);
+  Opal.add_stubs(['$include', '$wrapper', '$div', '$render_footer', '$control_wrapper', '$render_numeric_control', '$render_policy']);
   return (function($base, $super, $parent_nesting) {
     function $SecretsPolicy(){};
     var self = $SecretsPolicy = $klass($base, $super, 'SecretsPolicy', $SecretsPolicy);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_SecretsPolicy_render_2;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_SecretsPolicy_render_4;
 
     
     self.$include(Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Inesita'), 'Component'));
     self.$include(Opal.const_get_relative($nesting, 'Policy'));
-    return (Opal.defn(self, '$render', TMP_SecretsPolicy_render_2 = function $$render() {
+    return (Opal.defn(self, '$render', TMP_SecretsPolicy_render_4 = function $$render() {
       var TMP_1, self = this;
 
-      
-      self.$render_policy();
-      return $send(self, 'render_footer', [], (TMP_1 = function(){var self = TMP_1.$$s || this;
+      return $send(self.$div(), 'wrapper', [], (TMP_1 = function(){var self = TMP_1.$$s || this, TMP_2;
 
       
-        self.$render_numeric_control("secrets", "Number of secrets:");
-        return self.$render_numeric_control("annotations_per_secret", "Annotations per secret:");}, TMP_1.$$s = self, TMP_1.$$arity = 0, TMP_1));
-    }, TMP_SecretsPolicy_render_2.$$arity = 0), nil) && 'render';
+        $send(self, 'render_footer', [], (TMP_2 = function(){var self = TMP_2.$$s || this, TMP_3;
+
+        return $send(self.$div(), 'control_wrapper', [], (TMP_3 = function(){var self = TMP_3.$$s || this;
+
+          
+            self.$render_numeric_control("secrets", "Number of Secrets:");
+            return self.$render_numeric_control("annotations_per_secret", "Annotations per Secret:");}, TMP_3.$$s = self, TMP_3.$$arity = 0, TMP_3))}, TMP_2.$$s = self, TMP_2.$$arity = 0, TMP_2));
+        return self.$render_policy();}, TMP_1.$$s = self, TMP_1.$$arity = 0, TMP_1))
+    }, TMP_SecretsPolicy_render_4.$$arity = 0), nil) && 'render';
   })($nesting[0], null, $nesting)
 };
 /* Generated by Opal 0.11.1 */
@@ -27088,9 +27100,9 @@ if (name == null) name = nil;
 };
 /* Generated by Opal 0.11.1 */
 Opal.modules["application"] = function(Opal) {
-  var TMP_3, self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $klass = Opal.klass, $send = Opal.send;
+  var TMP_2, self = Opal.top, $nesting = [], nil = Opal.nil, $breaker = Opal.breaker, $slice = Opal.slice, $klass = Opal.klass, $send = Opal.send;
 
-  Opal.add_stubs(['$require', '$require_tree', '$include', '$inject', '$component', '$container', '$div', '$router', '$ready?', '$mount_to', '$body']);
+  Opal.add_stubs(['$require', '$require_tree', '$include', '$inject', '$component', '$router', '$ready?', '$mount_to', '$body']);
   
   self.$require("inesita");
   self.$require("inesita-router");
@@ -27103,23 +27115,21 @@ Opal.modules["application"] = function(Opal) {
     function $Application(){};
     var self = $Application = $klass($base, $super, 'Application', $Application);
 
-    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Application_render_2;
+    var def = self.$$proto, $nesting = [self].concat($parent_nesting), TMP_Application_render_1;
 
     
     self.$include(Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Inesita'), 'Component'));
     self.$inject(Opal.const_get_relative($nesting, 'Router'));
     self.$inject(Opal.const_get_relative($nesting, 'Store'));
-    return (Opal.defn(self, '$render', TMP_Application_render_2 = function $$render() {
-      var TMP_1, self = this;
+    return (Opal.defn(self, '$render', TMP_Application_render_1 = function $$render() {
+      var self = this;
 
       
       self.$component(Opal.const_get_relative($nesting, 'NavBar'));
-      return $send(self.$div(), 'container', [], (TMP_1 = function(){var self = TMP_1.$$s || this;
-
-      return self.$component(self.$router())}, TMP_1.$$s = self, TMP_1.$$arity = 0, TMP_1));
-    }, TMP_Application_render_2.$$arity = 0), nil) && 'render';
+      return self.$component(self.$router());
+    }, TMP_Application_render_1.$$arity = 0), nil) && 'render';
   })($nesting[0], null, $nesting);
-  return $send(Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Inesita'), 'Browser'), 'ready?', [], (TMP_3 = function(){var self = TMP_3.$$s || this;
+  return $send(Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Inesita'), 'Browser'), 'ready?', [], (TMP_2 = function(){var self = TMP_2.$$s || this;
 
-  return Opal.const_get_relative($nesting, 'Application').$mount_to(Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Inesita'), 'Browser').$body())}, TMP_3.$$s = self, TMP_3.$$arity = 0, TMP_3));
+  return Opal.const_get_relative($nesting, 'Application').$mount_to(Opal.const_get_qualified(Opal.const_get_relative($nesting, 'Inesita'), 'Browser').$body())}, TMP_2.$$s = self, TMP_2.$$arity = 0, TMP_2));
 };
