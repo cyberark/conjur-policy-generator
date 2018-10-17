@@ -2,7 +2,7 @@ class About
   include Inesita::Component
 
   def render
-    div.jumbotron.text_center.bg_light do
+    div.jumbotron.text_center.bg_light.about_wrapper do
       p do
         text 'This is a proof of concept web UI for the Conjur policy generator.'
         br

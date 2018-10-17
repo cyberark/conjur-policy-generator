@@ -3,10 +3,14 @@ class SecretsPolicy
   include Policy
 
   def render
-    render_policy
-    render_footer do
-      render_numeric_control :secrets, 'Number of secrets:'
-      render_numeric_control :annotations_per_secret, 'Annotations per secret:'
-    end
+  	div.wrapper do
+      render_footer do
+        div.control_wrapper do
+          render_numeric_control :secrets, 'Number of Secrets:'
+          render_numeric_control :annotations_per_secret, 'Annotations per Secret:'
+        end
+      end
+	  render_policy
+	end
   end
 end
