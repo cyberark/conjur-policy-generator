@@ -57,8 +57,8 @@ class NavBar
               text 'About'
             end
           end
-          li.nav_item class: class_names(active: router.current_url?(:about)) do
-            a.nav_link.nav_link_secondary href: router.url_for(:home) do
+          li.nav_item class: class_names(active: router.current_url?(:home)) do
+            a.nav_link.nav_link_primary href: router.url_for(:home) do
               text 'Policy Generator'
             end
           end
