@@ -3,15 +3,11 @@ class KubernetesPolicy
   include Policy
 
   def render
-    div.wrapper do
-      render_footer do
-        div.control_wrapper do
-          render_text_control :app_name, 'App Name:'
-          render_text_control :app_namespace, 'App Namespace:'
-          render_text_control :authenticator_id, 'Authenticator ID:'
-        end
-      end
-      render_policy
+    render_policy
+    render_footer do
+      render_text_control :app_name, 'App name:'
+      render_text_control :app_namespace, 'App namespace:'
+      render_text_control :authenticator_id, 'Authenticator ID:'
     end
   end
 end

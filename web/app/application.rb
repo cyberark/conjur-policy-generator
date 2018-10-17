@@ -21,8 +21,10 @@ class Application
   inject Store
 
   def render
-    component NavBar
-    component router
+    div.container do
+      component NavBar
+      component router
+    end
   end
 end
 
