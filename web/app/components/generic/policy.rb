@@ -28,7 +28,7 @@ module Policy
   end
 
   def generic_control description, extra_prepend=lambda{}, &block
-    div.numeric_control.input_group.mb_2 do
+    div.numeric_control.input_group do
       div.input_group_prepend do
         label.input_group_text do
           text description
@@ -44,13 +44,14 @@ module Policy
       input.form_control type: 'text',
                          value: store.value(variable),
                          oninput: update(variable),
-                         style: {'max-width': '20ex'}
+                         style: {'border-color': 'white', 'border-radius': '4px',}
     end
   end
 
   def render_numeric_control variable, description
     generic_control description, lambda {
-      button.btn.btn_outline_secondary style: {background: 'white'},
+      button.btn.btn_outline_secondary style: {background: '#35C5C1', 'color': 'white', 'font-weight': '800', 'border-color': '#35C5C1', 'border-radius': '50%', 'height': '40px',
+      'width': '40px',},
                                        onclick: dec(variable) do
         text '-'
       end
@@ -58,9 +59,10 @@ module Policy
       input.form_control.text_center type: 'text',
                                      value: store.value(variable),
                                      disabled: true,
-                                     style: {'max-width': '3em'}
+                                     style: {background: 'white', 'border-color': 'white', 'border-radius': '4px'}
       div.input_group_append do
-        button.btn.btn_outline_secondary style: {background: 'white'},
+        button.btn.btn_outline_secondary style: {background: '#35C5C1', 'color': 'white', 'font-weight': '800', 'border-color': '#35C5C1', 'border-radius': '50%', 'height': '40px',
+      'width': '40px'},
                                          onclick: inc(variable) do
           text '+'
         end
@@ -82,49 +84,45 @@ module Policy
   def render_download_button
     data_encoded = ::Base64.encode64 store.policy_text
     uri = "data:application/yaml;base64,#{data_encoded}"
-    div.input_group style: {padding: '1rem',
+    div.input_group style: {padding: '30px 10px 10px 0px',
                             'margin-top': '-0.5rem',
-                            background: 'white'} do
+                            } do
       a href: uri,
         target: '_blank',
         download: 'policy.yml',
-        style: {border: '1px solid #d4d4d4',
-                'border-radius': '5px'} do
+        style: {border: '1px solid #4D84B8',
+                'border-radius': '5px',
+                'background': '#4D84B8',} do
         span.input_group_btn do
-          button.btn.btn_default 'Download Policy YAML'
+          button.btn.btn_default.btn_prim 'Download Policy'
         end
       end
     end
   end
 
   def render_policy
-    div.bg_light do
+    div.policy_config_display.box do
       h4 do
         text props[:header]
       end if props[:header]
       div style: {'font-family': 'monospace',
                   'white-space': 'pre',
-                  padding: '8px',
+                  'background': '#0E2234',
+                  'color': 'white',
+                  padding: '30px',
                   'padding-bottom': '2.5rem',
-                  'border-bottom': '3px dashed white',
-                  margin: '8px',
                  } do
         text store.policy_text
       end
     end
-    render_download_button
   end
 
   def render_footer &block
-    div.footer.container style: {position: 'fixed',
-                                 bottom: '0px',
-                                 left: '0px',
-                                 right: '0px',
-                                } do
+    div.policy_config_list.box do
       yield
     end
-    div.container style: {visibility: 'hidden'} do
-      yield
-    end
+    # div.container style: {visibility: 'hidden'} do
+    #   yield
+    # end
   end
 end
